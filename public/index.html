@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="/css/0wufxibsr2124.css" />
   <link rel="stylesheet" href="/css/12dqn050hih7e.css" />
 
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <style>
     :root {
       --font-ui: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
@@ -898,45 +901,115 @@
         left: 0;
         right: 0;
         z-index: 600;
-        padding: 14px 18px;
-        background: rgba(14, 12, 17, 0.92);
+        padding: 12px 16px;
+        background: rgba(14, 12, 17, 0.94);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 8px;
+        box-sizing: border-box;
+      }
+
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        flex-shrink: 1;
       }
 
       .brand-avatar {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        flex-shrink: 0;
+      }
+
+      .brand-text {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
       }
 
       .brand-title {
-        font-size: 22px;
+        font-size: 19px;
+        white-space: nowrap;
       }
 
       .brand-tag {
-        font-size: 10px;
+        font-size: 9px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .header-actions {
-        gap: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        flex-wrap: nowrap;
       }
 
       .header-btn {
-        padding: 7px 14px;
+        padding: 7px 12px;
+        font-size: 13px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      /* Connected User Pill on Mobile - compact & locked so toggle never gets pushed */
+      .user-session-wrapper {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .user-pill-btn {
+        padding: 4px 8px 4px 4px;
+        gap: 6px;
+        font-size: 13px;
+        flex-shrink: 0;
+        max-width: 130px;
+      }
+
+      .user-pill-avatar {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+      }
+
+      .user-pill-name {
+        max-width: 65px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         font-size: 13px;
       }
 
-      /* Mobile Navigation Toggle Button */
+      .user-pill-caret {
+        font-size: 9px;
+        flex-shrink: 0;
+      }
+
+      .user-dropdown-card {
+        right: 0;
+        width: 250px;
+        max-width: calc(100vw - 32px);
+      }
+
+      /* Mobile Navigation Toggle Button - locked size, never shrinks */
       .mobile-nav-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 5px;
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         padding: 0;
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.16);
@@ -944,6 +1017,7 @@
         cursor: pointer;
         transition: all 0.25s ease;
         z-index: 610;
+        flex-shrink: 0;
       }
 
       .mobile-nav-toggle:hover,
@@ -1171,6 +1245,26 @@
         max-height: 85vh;
       }
     }
+
+    @media (max-width: 520px) {
+      .site-header {
+        padding: 10px 14px;
+      }
+      .brand-title {
+        font-size: 18px;
+      }
+      .brand-tag {
+        display: none !important;
+      }
+      .user-pill-btn {
+        padding: 3px 6px 3px 3px;
+        gap: 4px;
+        max-width: none;
+      }
+      .user-pill-name {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1384,6 +1478,9 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:12px;">
+        <!-- Container for GIS official rendered button -->
+        <div id="g_id_signin_container" style="display:none;justify-content:center;width:100%;"></div>
+
         <button type="button" class="auth-btn auth-btn-white" id="btn-google-signin">
           <svg width="20" height="20" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M23.52 12.27c0-.82-.07-1.6-.21-2.36H12v4.46h6.46a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.59-5.15 3.59-8.72Z"></path>
@@ -1556,22 +1653,41 @@
 
   <!-- Modal 7: Google Sign In Account Picker -->
   <div class="modal-overlay" id="google-auth-modal" aria-hidden="true">
-    <div class="modal-card" style="max-width:440px;">
+    <div class="modal-card" style="max-width:460px;">
       <button type="button" class="modal-close-btn" data-close="google-auth-modal">&times;</button>
       
-      <div style="text-align:center;margin-bottom:18px;">
-        <svg width="38" height="38" viewBox="0 0 24 24" style="margin-bottom:8px;">
+      <div style="text-align:center;margin-bottom:16px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" style="margin-bottom:8px;">
           <path fill="#4285F4" d="M23.52 12.27c0-.82-.07-1.6-.21-2.36H12v4.46h6.46a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.59-5.15 3.59-8.72Z"></path>
           <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.86-3c-1.07.72-2.45 1.15-4.08 1.15-3.13 0-5.79-2.11-6.74-4.96H1.26v3.09A12 12 0 0 0 12 24Z"></path>
           <path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56V6.63H1.26a12 12 0 0 0 0 10.74l4-3.09Z"></path>
           <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.26 6.63l4 3.09C6.21 6.86 8.87 4.75 12 4.75Z"></path>
         </svg>
         <h2 class="modal-title" style="font-size:22px;">Sign in with Google</h2>
-        <p class="modal-subtitle">Choose an account to continue to Tired.fun</p>
+        <p class="modal-subtitle">Authenticate securely to trade on Robinhood</p>
       </div>
 
+      <!-- Real Google OAuth (Google Cloud Client ID) -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,123,41,0.25);border-radius:14px;padding:14px;margin-bottom:14px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-size:12px;font-weight:800;color:#ffab73;text-transform:uppercase;letter-spacing:0.5px;">⚡ Real Google OAuth 2.0</span>
+          <span style="font-size:11px;color:#9d9dad;">Google Cloud</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-body);margin-bottom:10px;line-height:1.4;">
+          Authorize with your real Google account via official Google popup:
+        </p>
+        <div style="margin-bottom:10px;">
+          <input type="text" class="form-input" id="input-google-client-id" placeholder="Google Client ID (e.g. *.apps.googleusercontent.com)" style="font-size:12px;padding:9px 12px;width:100%;" />
+        </div>
+        <button type="button" class="auth-btn auth-btn-white" id="btn-launch-real-oauth" style="padding:10px;font-size:13px;width:100%;">
+          <span>🌐</span> Launch Google OAuth Popup
+        </button>
+      </div>
+
+      <div class="auth-divider">or direct connect with your account</div>
+
       <!-- Quick 1-Click Profile Selection -->
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:12px;">
         <div class="google-account-item" id="btn-select-default-google">
           <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff7b29,#9e61fa);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;">
             D
@@ -1580,23 +1696,21 @@
             <div style="font-weight:800;font-size:14px;color:#fff;">Degen Trader</div>
             <div style="font-size:12px;color:#9d9dad;">degen@tired.fun</div>
           </div>
-          <span style="font-size:12px;color:var(--orange);font-weight:800;">Select →</span>
+          <span style="font-size:12px;color:var(--orange);font-weight:800;">1-Click →</span>
         </div>
       </div>
 
-      <div class="auth-divider">or enter custom account</div>
-
-      <form id="form-custom-google-signin" style="display:flex;flex-direction:column;gap:12px;">
-        <div class="form-group">
-          <label class="form-label" for="input-google-email">Google Email</label>
-          <input type="email" class="form-input" id="input-google-email" placeholder="you@gmail.com" required />
+      <form id="form-custom-google-signin" style="display:flex;flex-direction:column;gap:10px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label" for="input-google-email" style="font-size:12px;">Your Real Google Email</label>
+          <input type="email" class="form-input" id="input-google-email" placeholder="you@gmail.com" required style="font-size:13px;padding:9px 12px;" />
         </div>
-        <div class="form-group">
-          <label class="form-label" for="input-google-name">Display Name (optional)</label>
-          <input type="text" class="form-input" id="input-google-name" placeholder="Your Name" />
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label" for="input-google-name" style="font-size:12px;">Display Name (optional)</label>
+          <input type="text" class="form-input" id="input-google-name" placeholder="Your Name" style="font-size:13px;padding:9px 12px;" />
         </div>
-        <button type="submit" class="auth-btn auth-btn-white" id="btn-submit-google-auth">
-          Continue with this Account
+        <button type="submit" class="auth-btn auth-btn-outline" id="btn-submit-google-auth" style="justify-content:center;padding:11px;font-size:13px;margin-top:4px;">
+          Connect Account
         </button>
       </form>
     </div>
@@ -1774,10 +1888,19 @@
       }
 
       function loginWithGoogle(userObj) {
+        let avatarUrl = userObj.avatar;
+        if (!avatarUrl || avatarUrl === '/brand/tired-pumpkin-face.png') {
+          if (userObj.email && userObj.email.includes('@')) {
+            avatarUrl = `https://unavatar.io/google/${encodeURIComponent(userObj.email)}?fallback=https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(userObj.email)}`;
+          } else {
+            avatarUrl = '/brand/tired-pumpkin-face.png';
+          }
+        }
+
         const userData = {
           name: userObj.name || 'Degen Trader',
           email: userObj.email || 'degen@tired.fun',
-          avatar: userObj.avatar || '/brand/tired-pumpkin-face.png',
+          avatar: avatarUrl,
           provider: 'google',
           timestamp: Date.now()
         };
@@ -1797,6 +1920,129 @@
         if (userPillBtn) userPillBtn.classList.remove('active');
         renderUserSession();
         showToast('Signed out successfully.');
+      }
+
+      // Google Identity Services (GIS) & Real OAuth 2.0 Integration
+      let googleClientId = localStorage.getItem('tired_google_client_id') || '';
+      let googleTokenClient = null;
+
+      const inputGoogleClientId = document.getElementById('input-google-client-id');
+      if (inputGoogleClientId && googleClientId) {
+        inputGoogleClientId.value = googleClientId;
+      }
+
+      function initGoogleGIS() {
+        if (!window.google || !google.accounts) return;
+
+        if (googleClientId) {
+          try {
+            google.accounts.id.initialize({
+              client_id: googleClientId,
+              callback: handleGoogleCredentialResponse,
+              auto_select: false
+            });
+
+            const gsiContainer = document.getElementById('g_id_signin_container');
+            if (gsiContainer) {
+              gsiContainer.style.display = 'flex';
+              google.accounts.id.renderButton(gsiContainer, {
+                type: 'standard',
+                theme: 'filled_black',
+                size: 'large',
+                text: 'continue_with',
+                shape: 'rectangular',
+                logo_alignment: 'left',
+                width: 320
+              });
+            }
+
+            googleTokenClient = google.accounts.oauth2.initTokenClient({
+              client_id: googleClientId,
+              scope: 'email profile openid',
+              callback: async (tokenResponse) => {
+                if (tokenResponse && tokenResponse.access_token) {
+                  showToast('Connecting to your Google Account...');
+                  try {
+                    const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                      headers: { Authorization: `Bearer ${tokenResponse.access_token}` }
+                    });
+                    const profile = await res.json();
+                    loginWithGoogle({
+                      name: profile.name || profile.given_name || 'Google User',
+                      email: profile.email,
+                      avatar: profile.picture || `https://unavatar.io/google/${encodeURIComponent(profile.email)}`,
+                      provider: 'google'
+                    });
+                  } catch (err) {
+                    console.error('Failed to fetch Google profile:', err);
+                    showToast('Could not fetch Google profile.');
+                  }
+                }
+              }
+            });
+          } catch (err) {
+            console.warn('Google Identity initialization failed:', err);
+          }
+        }
+      }
+
+      function handleGoogleCredentialResponse(response) {
+        if (!response || !response.credential) return;
+        try {
+          const base64Url = response.credential.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+          }).join(''));
+          const payload = JSON.parse(jsonPayload);
+          loginWithGoogle({
+            name: payload.name || payload.given_name || 'Google User',
+            email: payload.email,
+            avatar: payload.picture || `https://unavatar.io/google/${encodeURIComponent(payload.email)}`,
+            provider: 'google'
+          });
+        } catch (err) {
+          console.error('Error decoding Google JWT credential:', err);
+        }
+      }
+
+      window.addEventListener('load', () => {
+        setTimeout(initGoogleGIS, 600);
+      });
+
+      function launchRealGoogleOAuth() {
+        const idInput = document.getElementById('input-google-client-id');
+        if (idInput && idInput.value.trim()) {
+          googleClientId = idInput.value.trim();
+          localStorage.setItem('tired_google_client_id', googleClientId);
+          initGoogleGIS();
+        }
+
+        if (!googleClientId) {
+          showToast('Please enter your Google OAuth Client ID.');
+          if (idInput) idInput.focus();
+          return;
+        }
+
+        if (googleTokenClient) {
+          closeModal('google-auth-modal');
+          closeModal('signin-modal');
+          googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+        } else {
+          initGoogleGIS();
+          if (googleTokenClient) {
+            closeModal('google-auth-modal');
+            closeModal('signin-modal');
+            googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+          } else {
+            showToast('Initializing Google Identity, please try again in 1s...');
+          }
+        }
+      }
+
+      const btnLaunchRealOAuth = document.getElementById('btn-launch-real-oauth');
+      if (btnLaunchRealOAuth) {
+        btnLaunchRealOAuth.addEventListener('click', launchRealGoogleOAuth);
       }
 
       // Initial session check
@@ -1825,8 +2071,13 @@
       const btnGoogleSignin = document.getElementById('btn-google-signin');
       if (btnGoogleSignin) {
         btnGoogleSignin.addEventListener('click', () => {
-          closeModal('signin-modal');
-          openModal('google-auth-modal');
+          if (googleTokenClient) {
+            closeModal('signin-modal');
+            googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+          } else {
+            closeModal('signin-modal');
+            openModal('google-auth-modal');
+          }
         });
       }
 
@@ -1836,7 +2087,7 @@
           loginWithGoogle({
             name: 'Degen Trader',
             email: 'degen@tired.fun',
-            avatar: '/brand/tired-pumpkin-face.png'
+            avatar: 'https://unavatar.io/google/degen@tired.fun?fallback=https://api.dicebear.com/7.x/identicon/svg?seed=degen'
           });
         });
       }
@@ -1853,7 +2104,7 @@
           loginWithGoogle({
             name: name,
             email: email,
-            avatar: '/brand/tired-pumpkin-face.png'
+            avatar: `https://unavatar.io/google/${encodeURIComponent(email)}?fallback=https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(email)}`
           });
         });
       }
