@@ -52,7 +52,7 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 50;
+      z-index: 500;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -616,6 +616,241 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
+    /* User Session Pill in Header */
+    .user-session-wrapper {
+      position: relative;
+    }
+
+    .user-pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 123, 41, 0.4);
+      color: #fff;
+      padding: 5px 14px 5px 6px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .user-pill-btn:hover,
+    .user-pill-btn.active {
+      background: rgba(255, 123, 41, 0.18);
+      border-color: var(--orange);
+      box-shadow: 0 0 16px rgba(255, 123, 41, 0.35);
+    }
+
+    .user-pill-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--orange);
+      display: block;
+    }
+
+    .user-pill-name {
+      max-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .user-pill-caret {
+      font-size: 11px;
+      color: #9d9dad;
+      transition: transform 0.2s ease;
+    }
+
+    .user-pill-btn.active .user-pill-caret {
+      transform: rotate(180deg);
+    }
+
+    /* User Profile Dropdown */
+    .user-dropdown-card {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #191622;
+      border: 1px solid rgba(255, 123, 41, 0.25);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 123, 41, 0.15);
+      border-radius: 18px;
+      padding: 16px;
+      width: 260px;
+      z-index: 120;
+      display: none;
+      animation: dropdownPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .user-dropdown-card.open {
+      display: block;
+    }
+
+    @keyframes dropdownPop {
+      from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .user-dropdown-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .user-dropdown-avatar-box img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--orange);
+      display: block;
+    }
+
+    .user-dropdown-details {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      text-align: left;
+    }
+
+    .user-dropdown-name {
+      font-weight: 800;
+      font-size: 15px;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-dropdown-email {
+      font-size: 12px;
+      color: #9d9dad;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 800;
+      color: #34d399;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .user-dropdown-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 10px 0;
+    }
+
+    .user-dropdown-action {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: none;
+      border: none;
+      color: #cbc4d8;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .user-dropdown-action:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .user-dropdown-signout:hover {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+    }
+
+    /* Google Account Card inside Picker */
+    .google-account-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .google-account-item:hover {
+      background: rgba(255, 123, 41, 0.12) !important;
+      border-color: rgba(255, 123, 41, 0.4) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Launching animation state for Launch App button */
+    .banner-badge.launching {
+      background: linear-gradient(135deg, #ff7b29 0%, #e65c00 100%) !important;
+      animation: pulseBadge 0.6s infinite alternate !important;
+      pointer-events: none;
+    }
+
+    @keyframes pulseBadge {
+      0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 123, 41, 0.5); }
+      100% { transform: scale(1.06); box-shadow: 0 0 32px rgba(255, 123, 41, 0.95); }
+    }
+
+    @keyframes rocketFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Toast Notification Component */
+    .app-toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-40px);
+      background: rgba(20, 17, 26, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 123, 41, 0.4);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 123, 41, 0.3);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .app-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     /* Form Inputs for Scholarship WL */
     .form-group {
       margin-bottom: 16px;
@@ -658,7 +893,16 @@
 
     @media (max-width: 960px) {
       .site-header {
-        padding: 16px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 600;
+        padding: 14px 18px;
+        background: rgba(14, 12, 17, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .brand-avatar {
@@ -699,7 +943,7 @@
         border-radius: 12px;
         cursor: pointer;
         transition: all 0.25s ease;
-        z-index: 101;
+        z-index: 610;
       }
 
       .mobile-nav-toggle:hover,
@@ -730,27 +974,25 @@
         transform: translateY(-7px) rotate(-45deg);
       }
 
-      /* Mobile Nav Dropdown Panel */
+      /* Mobile Nav Dropdown Panel - Strictly above backdrop */
       .top-nav {
         display: none;
         position: fixed;
-        top: 76px;
-        left: 16px;
-        right: 16px;
-        background: rgba(22, 19, 27, 0.97);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border: 1px solid rgba(255, 123, 41, 0.3);
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        background: #181520;
+        border: 1px solid rgba(255, 123, 41, 0.45);
         box-shadow: 
-          0 20px 50px rgba(0, 0, 0, 0.85),
-          0 0 35px rgba(255, 123, 41, 0.2);
+          0 25px 60px rgba(0, 0, 0, 0.95),
+          0 0 35px rgba(255, 123, 41, 0.25);
         border-radius: 20px;
         padding: 16px;
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
-        z-index: 100;
-        transform: translateY(-12px);
+        gap: 10px;
+        z-index: 650;
+        transform: translateY(-10px);
         opacity: 0;
         pointer-events: none;
         transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
@@ -770,35 +1012,38 @@
       .top-nav .nav-item button,
       .top-nav .nav-item a {
         width: 100%;
-        padding: 13px 16px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 800;
         color: #fff;
         justify-content: flex-start;
         text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         transition: all 0.2s ease;
       }
 
       .top-nav .nav-item button:hover,
       .top-nav .nav-item button:active {
-        background: rgba(255, 123, 41, 0.15);
-        border-color: rgba(255, 123, 41, 0.4);
-        color: #ffab73;
+        background: rgba(255, 123, 41, 0.2);
+        border-color: var(--orange);
+        color: #fff;
         transform: translateX(4px);
       }
 
-      /* Mobile Nav Backdrop */
+      /* Mobile Nav Backdrop - Behind header and nav, above hero */
       .mobile-nav-backdrop {
         display: block;
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.65);
+        background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
-        z-index: 90;
+        z-index: 550;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.25s ease;
@@ -962,9 +1207,42 @@
 
     <!-- Header CTA & Mobile Nav Toggle -->
     <div class="header-actions">
+      <!-- Logged Out Sign In Button -->
       <button type="button" class="header-btn" id="header-signin-btn">
         <span>🎃</span> Sign In
       </button>
+
+      <!-- Logged In User Pill with Dropdown -->
+      <div class="user-session-wrapper" id="user-session-wrapper" style="display:none;">
+        <button type="button" class="user-pill-btn" id="user-pill-btn" aria-label="User Account" aria-expanded="false">
+          <img src="/brand/tired-pumpkin-face.png" alt="" class="user-pill-avatar" id="user-pill-avatar" />
+          <span class="user-pill-name" id="user-pill-name">Degen</span>
+          <span class="user-pill-caret">▼</span>
+        </button>
+        <div class="user-dropdown-card" id="user-dropdown-card">
+          <div class="user-dropdown-profile">
+            <div class="user-dropdown-avatar-box">
+              <img src="/brand/tired-pumpkin-face.png" alt="" id="user-dropdown-avatar" />
+            </div>
+            <div class="user-dropdown-details">
+              <div class="user-dropdown-name" id="user-dropdown-name">Degen Trader</div>
+              <div class="user-dropdown-email" id="user-dropdown-email">degen@tired.fun</div>
+              <span class="user-google-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.52 12.27c0-.82-.07-1.6-.21-2.36H12v4.46h6.46a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.59-5.15 3.59-8.72Z"></path><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.86-3c-1.07.72-2.45 1.15-4.08 1.15-3.13 0-5.79-2.11-6.74-4.96H1.26v3.09A12 12 0 0 0 12 24Z"></path><path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56V6.63H1.26a12 12 0 0 0 0 10.74l4-3.09Z"></path><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.26 6.63l4 3.09C6.21 6.86 8.87 4.75 12 4.75Z"></path></svg>
+                Google Connected
+              </span>
+            </div>
+          </div>
+          <div class="user-dropdown-divider"></div>
+          <button type="button" class="user-dropdown-action" id="btn-user-launch-app">
+            <span>🚀</span> Launch App
+          </button>
+          <button type="button" class="user-dropdown-action user-dropdown-signout" id="btn-signout">
+            <span>🚪</span> Sign Out
+          </button>
+        </div>
+      </div>
+
       <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -972,6 +1250,9 @@
       </button>
     </div>
   </header>
+
+  <!-- Global Toast Notification -->
+  <div class="app-toast" id="app-toast" role="status" aria-live="polite"></div>
 
   <!-- Mobile Nav Backdrop -->
   <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
@@ -1103,7 +1384,7 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:12px;">
-        <button type="button" class="auth-btn auth-btn-white">
+        <button type="button" class="auth-btn auth-btn-white" id="btn-google-signin">
           <svg width="20" height="20" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M23.52 12.27c0-.82-.07-1.6-.21-2.36H12v4.46h6.46a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.59-5.15 3.59-8.72Z"></path>
             <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.86-3c-1.07.72-2.45 1.15-4.08 1.15-3.13 0-5.79-2.11-6.74-4.96H1.26v3.09A12 12 0 0 0 12 24Z"></path>
@@ -1218,6 +1499,106 @@
           Contact via @TheTiredFun on X
         </a>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal 6: Launch App Coming Soon Popup -->
+  <div class="modal-overlay" id="app-coming-soon-modal" aria-hidden="true">
+    <div class="modal-card" style="text-align:center;max-width:500px;">
+      <button type="button" class="modal-close-btn" data-close="app-coming-soon-modal">&times;</button>
+      
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:68px;height:68px;border-radius:22px;background:linear-gradient(135deg, rgba(255,123,41,0.25) 0%, rgba(158,97,250,0.3) 100%);border:1px solid rgba(255,123,41,0.45);box-shadow:0 0 25px rgba(255,123,41,0.35);margin-bottom:14px;">
+        <span style="font-size:34px;animation:rocketFloat 2.2s ease-in-out infinite;">🚀</span>
+      </div>
+
+      <div class="modal-header" style="text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,123,41,0.15);border:1px solid rgba(255,123,41,0.35);padding:4px 12px;border-radius:999px;font-size:11px;font-weight:800;color:var(--orange);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulseDot 1.5s infinite;"></span>
+          Robinhood Chain Testnet • 46630
+        </div>
+        <h2 class="modal-title" style="font-size:28px;font-weight:900;background:linear-gradient(135deg,#fff 30%,var(--orange) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Coming Soon</h2>
+        <p class="modal-subtitle" style="font-size:14px;max-width:380px;margin:6px auto 0;color:var(--text-body);">The Tired.Fun Perpetual Opinion Market & Bonding Curve dApp is launching shortly on Robinhood Chain.</p>
+      </div>
+
+      <div style="margin:16px 0;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);box-shadow:0 10px 25px rgba(0,0,0,0.6);position:relative;">
+        <img src="/tired-app-banner.jpg" alt="Tired.fun App Interface Preview" style="width:100%;display:block;filter:brightness(0.95);" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(14,12,17,0.92) 0%, transparent 60%);display:flex;align-items:flex-end;justify-content:center;padding:12px;">
+          <span style="font-size:12px;font-weight:800;color:#ffab73;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);padding:5px 12px;border-radius:999px;border:1px solid rgba(255,123,41,0.3);">
+            ⚡ Dual YES / NO Curves • 100% Instant Liquidity
+          </span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;text-align:left;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:12px;">
+          <div style="font-size:11px;color:#9d9dad;font-weight:700;">No Oracles</div>
+          <div style="font-size:14px;color:#fff;font-weight:800;margin-top:2px;">No Expiry</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:12px;">
+          <div style="font-size:11px;color:#9d9dad;font-weight:700;">Creator Royalty</div>
+          <div style="font-size:14px;color:#ffab73;font-weight:800;margin-top:2px;">1% Forever</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://x.com/TheTiredFun" target="_blank" rel="noopener noreferrer" class="btn-primary-purple" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;padding:13px 20px;font-size:14px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </svg>
+          Follow @TheTiredFun for Early Access
+        </a>
+        <button type="button" class="header-btn" data-close="app-coming-soon-modal" style="justify-content:center;padding:10px;border-radius:12px;">
+          Got it
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7: Google Sign In Account Picker -->
+  <div class="modal-overlay" id="google-auth-modal" aria-hidden="true">
+    <div class="modal-card" style="max-width:440px;">
+      <button type="button" class="modal-close-btn" data-close="google-auth-modal">&times;</button>
+      
+      <div style="text-align:center;margin-bottom:18px;">
+        <svg width="38" height="38" viewBox="0 0 24 24" style="margin-bottom:8px;">
+          <path fill="#4285F4" d="M23.52 12.27c0-.82-.07-1.6-.21-2.36H12v4.46h6.46a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.59-5.15 3.59-8.72Z"></path>
+          <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.86-3c-1.07.72-2.45 1.15-4.08 1.15-3.13 0-5.79-2.11-6.74-4.96H1.26v3.09A12 12 0 0 0 12 24Z"></path>
+          <path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56V6.63H1.26a12 12 0 0 0 0 10.74l4-3.09Z"></path>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.26 6.63l4 3.09C6.21 6.86 8.87 4.75 12 4.75Z"></path>
+        </svg>
+        <h2 class="modal-title" style="font-size:22px;">Sign in with Google</h2>
+        <p class="modal-subtitle">Choose an account to continue to Tired.fun</p>
+      </div>
+
+      <!-- Quick 1-Click Profile Selection -->
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+        <div class="google-account-item" id="btn-select-default-google">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff7b29,#9e61fa);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;">
+            D
+          </div>
+          <div style="flex:1;min-width:0;text-align:left;">
+            <div style="font-weight:800;font-size:14px;color:#fff;">Degen Trader</div>
+            <div style="font-size:12px;color:#9d9dad;">degen@tired.fun</div>
+          </div>
+          <span style="font-size:12px;color:var(--orange);font-weight:800;">Select →</span>
+        </div>
+      </div>
+
+      <div class="auth-divider">or enter custom account</div>
+
+      <form id="form-custom-google-signin" style="display:flex;flex-direction:column;gap:12px;">
+        <div class="form-group">
+          <label class="form-label" for="input-google-email">Google Email</label>
+          <input type="email" class="form-input" id="input-google-email" placeholder="you@gmail.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input-google-name">Display Name (optional)</label>
+          <input type="text" class="form-input" id="input-google-name" placeholder="Your Name" />
+        </div>
+        <button type="submit" class="auth-btn auth-btn-white" id="btn-submit-google-auth">
+          Continue with this Account
+        </button>
+      </form>
     </div>
   </div>
 
@@ -1337,15 +1718,181 @@
       const navScholarship = document.getElementById('nav-scholarship-btn');
       if (navScholarship) navScholarship.addEventListener('click', () => openModal('scholarship-modal'));
 
+      // Toast notification helper
+      let toastTimer = null;
+      function showToast(message) {
+        const toast = document.getElementById('app-toast');
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3200);
+      }
+
+      // User session state & rendering
+      function renderUserSession() {
+        const raw = localStorage.getItem('tired_user');
+        const userWrapper = document.getElementById('user-session-wrapper');
+        const btnHeaderSignin = document.getElementById('header-signin-btn');
+        const btnHeroSignin = document.getElementById('btn-signin-hero');
+
+        if (raw) {
+          try {
+            const user = JSON.parse(raw);
+            if (btnHeaderSignin) btnHeaderSignin.style.display = 'none';
+            if (userWrapper) {
+              userWrapper.style.display = 'block';
+              const nameEl = document.getElementById('user-pill-name');
+              const avatarEl = document.getElementById('user-pill-avatar');
+              const dropName = document.getElementById('user-dropdown-name');
+              const dropEmail = document.getElementById('user-dropdown-email');
+              const dropAvatar = document.getElementById('user-dropdown-avatar');
+
+              if (nameEl) nameEl.textContent = user.name;
+              if (avatarEl) avatarEl.src = user.avatar || '/brand/tired-pumpkin-face.png';
+              if (dropName) dropName.textContent = user.name;
+              if (dropEmail) dropEmail.textContent = user.email;
+              if (dropAvatar) dropAvatar.src = user.avatar || '/brand/tired-pumpkin-face.png';
+            }
+            if (btnHeroSignin) {
+              btnHeroSignin.innerHTML = '<span style="font-size:18px;">🚀</span> Launch App';
+            }
+            return;
+          } catch(err) {
+            console.error(err);
+          }
+        }
+
+        // Not signed in
+        if (btnHeaderSignin) btnHeaderSignin.style.display = 'inline-flex';
+        if (userWrapper) userWrapper.style.display = 'none';
+        if (btnHeroSignin) {
+          btnHeroSignin.innerHTML = '<img src="/brand/tired-pumpkin-face.png" alt="" width="22" height="22" style="border-radius:50%;object-fit:cover;" /> Sign in with Tired.fun';
+        }
+      }
+
+      function loginWithGoogle(userObj) {
+        const userData = {
+          name: userObj.name || 'Degen Trader',
+          email: userObj.email || 'degen@tired.fun',
+          avatar: userObj.avatar || '/brand/tired-pumpkin-face.png',
+          provider: 'google',
+          timestamp: Date.now()
+        };
+        localStorage.setItem('tired_user', JSON.stringify(userData));
+        closeModal('google-auth-modal');
+        closeModal('signin-modal');
+        renderUserSession();
+        showToast(`Signed in with Google as ${userData.name}! 🎃`);
+        triggerCandyAnimation({ clientX: window.innerWidth * 0.5, clientY: 120 });
+      }
+
+      function signoutUser() {
+        localStorage.removeItem('tired_user');
+        const userDropdownCard = document.getElementById('user-dropdown-card');
+        const userPillBtn = document.getElementById('user-pill-btn');
+        if (userDropdownCard) userDropdownCard.classList.remove('open');
+        if (userPillBtn) userPillBtn.classList.remove('active');
+        renderUserSession();
+        showToast('Signed out successfully.');
+      }
+
+      // Initial session check
+      renderUserSession();
+
       // Sign In buttons
       const btnHeaderSignin = document.getElementById('header-signin-btn');
       if (btnHeaderSignin) btnHeaderSignin.addEventListener('click', () => openModal('signin-modal'));
 
       const btnHeroSignin = document.getElementById('btn-signin-hero');
-      if (btnHeroSignin) btnHeroSignin.addEventListener('click', () => openModal('signin-modal'));
+      if (btnHeroSignin) {
+        btnHeroSignin.addEventListener('click', (e) => {
+          const raw = localStorage.getItem('tired_user');
+          if (raw) {
+            triggerLaunchAppFlow(e);
+          } else {
+            openModal('signin-modal');
+          }
+        });
+      }
 
       const btnRules = document.getElementById('btn-open-rules');
       if (btnRules) btnRules.addEventListener('click', () => openModal('about-modal'));
+
+      // Google Sign-In triggers
+      const btnGoogleSignin = document.getElementById('btn-google-signin');
+      if (btnGoogleSignin) {
+        btnGoogleSignin.addEventListener('click', () => {
+          closeModal('signin-modal');
+          openModal('google-auth-modal');
+        });
+      }
+
+      const btnSelectDefaultGoogle = document.getElementById('btn-select-default-google');
+      if (btnSelectDefaultGoogle) {
+        btnSelectDefaultGoogle.addEventListener('click', () => {
+          loginWithGoogle({
+            name: 'Degen Trader',
+            email: 'degen@tired.fun',
+            avatar: '/brand/tired-pumpkin-face.png'
+          });
+        });
+      }
+
+      const formCustomGoogle = document.getElementById('form-custom-google-signin');
+      if (formCustomGoogle) {
+        formCustomGoogle.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = document.getElementById('input-google-email').value.trim();
+          let name = document.getElementById('input-google-name').value.trim();
+          if (!name) {
+            name = email.split('@')[0];
+          }
+          loginWithGoogle({
+            name: name,
+            email: email,
+            avatar: '/brand/tired-pumpkin-face.png'
+          });
+        });
+      }
+
+      // User pill & dropdown listeners
+      const userPillBtn = document.getElementById('user-pill-btn');
+      const userDropdownCard = document.getElementById('user-dropdown-card');
+      if (userPillBtn && userDropdownCard) {
+        userPillBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = userDropdownCard.classList.contains('open');
+          if (isOpen) {
+            userDropdownCard.classList.remove('open');
+            userPillBtn.classList.remove('active');
+          } else {
+            userDropdownCard.classList.add('open');
+            userPillBtn.classList.add('active');
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!userDropdownCard.contains(e.target) && !userPillBtn.contains(e.target)) {
+            userDropdownCard.classList.remove('open');
+            userPillBtn.classList.remove('active');
+          }
+        });
+      }
+
+      const btnSignout = document.getElementById('btn-signout');
+      if (btnSignout) btnSignout.addEventListener('click', signoutUser);
+
+      const btnUserLaunchApp = document.getElementById('btn-user-launch-app');
+      if (btnUserLaunchApp) {
+        btnUserLaunchApp.addEventListener('click', (e) => {
+          if (userDropdownCard) userDropdownCard.classList.remove('open');
+          if (userPillBtn) userPillBtn.classList.remove('active');
+          triggerLaunchAppFlow(e);
+        });
+      }
 
       // Particle treats explosion animation on card / Launch App click
       const treats = ['🍬', '🍭', '✨', '🎃', '🦇', '🍫', '💀', '🚀'];
@@ -1367,28 +1914,46 @@
         }
       }
 
+      // Unified Launch App flow with 1.5s delay before "Coming Soon" popup
+      let isLaunching = false;
+      function triggerLaunchAppFlow(e) {
+        if (isLaunching) return;
+        isLaunching = true;
+
+        // Immediate candy/treat animation
+        triggerCandyAnimation(e);
+
+        const btnLaunchApp = document.getElementById('btn-launch-app');
+        if (btnLaunchApp) {
+          btnLaunchApp.classList.add('launching');
+          btnLaunchApp.innerHTML = '<span>⏳</span> Launching...';
+        }
+
+        showToast('🚀 Connecting to Robinhood Chain...');
+
+        // 1.5 seconds delay (1500ms) before opening the "Coming Soon" popup
+        setTimeout(() => {
+          if (btnLaunchApp) {
+            btnLaunchApp.classList.remove('launching');
+            btnLaunchApp.innerHTML = '<span>🚀</span> Launch App';
+          }
+          isLaunching = false;
+          openModal('app-coming-soon-modal');
+          triggerCandyAnimation(e);
+        }, 1500);
+      }
+
       const bannerCard = document.getElementById('banner-interactive-card');
       const btnLaunchApp = document.getElementById('btn-launch-app');
 
       if (bannerCard) {
-        bannerCard.addEventListener('click', (e) => {
-          triggerCandyAnimation(e);
-          // Placeholder for url navigation:
-          const url = btnLaunchApp.getAttribute('data-url');
-          if (url && url.trim() !== '') {
-            setTimeout(() => { window.location.href = url; }, 350);
-          }
-        });
+        bannerCard.addEventListener('click', triggerLaunchAppFlow);
       }
 
       if (btnLaunchApp) {
         btnLaunchApp.addEventListener('click', (e) => {
           e.stopPropagation();
-          triggerCandyAnimation(e);
-          const url = btnLaunchApp.getAttribute('data-url');
-          if (url && url.trim() !== '') {
-            setTimeout(() => { window.location.href = url; }, 350);
-          }
+          triggerLaunchAppFlow(e);
         });
       }
     })();
