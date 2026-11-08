@@ -1,0 +1,13 @@
+{
+  "name": "tired-fun",
+  "version": "1.0.0",
+  "description": "Tired.fun - Degen Mansion Knock Knock Halloween Event",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}

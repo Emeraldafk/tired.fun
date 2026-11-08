@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en" class="ZdPV6W_variable">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tired.Fun | Digital Collectibles & Opinion Markets</title>
+  <meta name="description" content="Digital Collectibles and opinion markets. First on Robinhood." />
+  <link rel="icon" href="/brand/tired-pumpkin-face.png" type="image/png" />
+
+  <!-- Preload fonts & base styling -->
+  <link rel="stylesheet" href="/css/3vjwuw47noytk.css" />
+  <link rel="stylesheet" href="/css/0wufxibsr2124.css" />
+  <link rel="stylesheet" href="/css/12dqn050hih7e.css" />
+
+  <style>
+    :root {
+      --font-ui: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
+      --font-sans: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
+      --ink: #0e0c11;
+      --ink-2: #151318;
+      --panel: #19171c;
+      --panel-2: #211f26;
+      --panel-3: #27242c;
+      --line: #302d38;
+      --text: #fff;
+      --text-body: #cbc4d8;
+      --purple: #9e61fa;
+      --purple-hi: #b889ff;
+      --orange: #ff7b29;
+      --orange-hi: #ffa86b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--text);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Site Header Navigation */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 36px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .brand-lockup:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid var(--orange);
+      box-shadow: 0 0 16px rgba(255, 123, 41, 0.5);
+      background: #140b1e;
+      flex-shrink: 0;
+    }
+
+    .brand-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--orange);
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9d9dad;
+      margin-top: 2px;
+    }
+
+    /* Top Navigation Links */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-item a,
+    .nav-item button {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item a:hover,
+    .nav-item button:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-pill-wl {
+      background: rgba(255, 123, 41, 0.12) !important;
+      border: 1px solid rgba(255, 123, 41, 0.35) !important;
+      color: #ffab73 !important;
+    }
+
+    .nav-pill-wl:hover {
+      background: rgba(255, 123, 41, 0.24) !important;
+      color: #fff !important;
+      box-shadow: 0 0 14px rgba(255, 123, 41, 0.35);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-btn:hover {
+      background: rgba(255, 123, 41, 0.2);
+      border-color: var(--orange);
+      color: #fff;
+      box-shadow: 0 0 14px rgba(255, 123, 41, 0.35);
+    }
+
+    /* Main Hero Stage */
+    .hero-section {
+      position: relative;
+      flex: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 120px 36px 60px;
+    }
+
+    /* The Banner Background */
+    .hero-banner-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image: url('/tired-banner.jpg');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      transform: scale(1.02);
+      transition: transform 0.8s ease-out;
+    }
+
+    /* Deep atmospheric gradient overlay for text readability */
+    .hero-banner-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: 
+        linear-gradient(to right, 
+          rgba(14, 12, 17, 0.98) 0%, 
+          rgba(14, 12, 17, 0.92) 36%, 
+          rgba(14, 12, 17, 0.60) 65%, 
+          rgba(14, 12, 17, 0.35) 100%
+        ),
+        linear-gradient(to bottom, 
+          rgba(14, 12, 17, 0.75) 0%, 
+          transparent 20%, 
+          transparent 80%, 
+          rgba(14, 12, 17, 0.95) 100%
+        );
+      pointer-events: none;
+    }
+
+    /* Content Layout */
+    .hero-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-left {
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-headline {
+      font-size: clamp(56px, 7.5vw, 104px);
+      font-weight: 1000;
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 1.8vw, 21px);
+      color: var(--text-body);
+      font-weight: 500;
+      margin-bottom: 28px;
+      line-height: 1.45;
+    }
+
+    .hero-cta {
+      margin-bottom: 34px;
+    }
+
+    .btn-primary-purple {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #9e61fa 0%, #8242e8 100%);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 17px;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(130, 66, 232, 0.45);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .btn-primary-purple:hover {
+      background: linear-gradient(135deg, #ad75ff 0%, #8f4ff0 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(130, 66, 232, 0.6);
+    }
+
+    .btn-primary-purple:active {
+      transform: translateY(0);
+    }
+
+    /* Reward Tiles */
+    .reward-tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 36px;
+      list-style: none;
+    }
+
+    .reward-tile {
+      background: rgba(25, 23, 28, 0.82);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .reward-tile:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .reward-tile--gold {
+      border-left: 3px solid #ffb949;
+    }
+
+    .reward-tile--purple {
+      border-left: 3px solid var(--purple);
+    }
+
+    .tile-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tile-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tile-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #9d9dad;
+      margin-bottom: 2px;
+    }
+
+    .tile-value {
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .tile-note {
+      font-size: 12px;
+      color: #797686;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* Social / Edge Links */
+    .edge-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .edge-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9d9dad;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .edge-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Hero Right Section: Showcasing the Banner Art */
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .banner-showcase-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(255, 123, 41, 0.4) 0%, rgba(158, 97, 250, 0.3) 100%);
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(255, 123, 41, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+      cursor: pointer;
+      max-width: 580px;
+      width: 100%;
+    }
+
+    .banner-showcase-card:hover {
+      transform: scale(1.025) rotate(-0.5deg);
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        0 0 45px rgba(255, 123, 41, 0.55);
+    }
+
+    .banner-inner-img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Launch App Badge */
+    .banner-badge {
+      position: absolute;
+      bottom: -14px;
+      right: 28px;
+      background: linear-gradient(135deg, #1b1226 0%, #0f0a17 100%);
+      border: 2px solid var(--orange);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 8px 20px;
+      border-radius: 999px;
+      box-shadow: 0 6px 25px rgba(255, 123, 41, 0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .banner-badge:hover {
+      transform: translateY(-2px) scale(1.04);
+      background: linear-gradient(135deg, #ff7b29 0%, #e65c00 100%);
+      box-shadow: 0 8px 30px rgba(255, 123, 41, 0.7);
+    }
+
+    /* Floating treat particles on card / Launch App click */
+    .treat-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 999;
+      font-size: 28px;
+      animation: float-particle 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    @keyframes float-particle {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -80%) scale(1.4) rotate(-15deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx, 20px)), calc(-50% - 130px)) scale(0.9) rotate(25deg);
+      }
+    }
+
+    /* Generic Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10, 8, 14, 0.85);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #17151c;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      max-width: 480px;
+      width: 100%;
+      padding: 34px 30px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(158, 97, 250, 0.2);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #9d9dad;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 14px;
+      color: #9d9dad;
+      line-height: 1.45;
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .auth-btn-white {
+      background: #fff;
+      color: #121016;
+    }
+
+    .auth-btn-white:hover {
+      background: #f0edf5;
+      transform: translateY(-1px);
+    }
+
+    .auth-btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .auth-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 12px 0;
+      color: #696375;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Form Inputs for Scholarship WL */
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #cfc7dd;
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 10px rgba(255, 123, 41, 0.25);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .top-nav {
+        display: none;
+      }
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-left {
+        max-width: 100%;
+        align-items: center;
+      }
+      .reward-tiles {
+        max-width: 480px;
+        width: 100%;
+      }
+      .hero-banner-bg {
+        background-position: center center;
+      }
+      .hero-banner-overlay {
+        background: linear-gradient(to bottom, rgba(14, 12, 17, 0.94) 0%, rgba(14, 12, 17, 0.75) 50%, rgba(14, 12, 17, 0.95) 100%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="site-header">
+    <a class="brand-lockup" href="/" aria-label="Tired.fun">
+      <div class="brand-avatar">
+        <img src="/brand/tired-pumpkin-face.png" alt="Tired mascot" />
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">Tired<span>.fun</span></div>
+        <div class="brand-tag">First on Robinhood</div>
+      </div>
+    </a>
+
+    <!-- Top Navigation Menu -->
+    <ul class="top-nav" aria-label="Primary Navigation">
+      <li class="nav-item">
+        <button type="button" id="nav-collection-btn">The Collection</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" id="nav-about-btn">About</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="nav-pill-wl" id="nav-scholarship-btn">
+          <span>🎓</span> Scholarship (Coming Soon)
+        </button>
+      </li>
+    </ul>
+
+    <!-- Header CTA -->
+    <div class="header-actions">
+      <button type="button" class="header-btn" id="header-signin-btn">
+        <span>🎃</span> Sign In
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <!-- The Banner as the Background -->
+    <div class="hero-banner-bg" aria-hidden="true"></div>
+    <div class="hero-banner-overlay" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <!-- Left Content -->
+      <div class="hero-left">
+        <h1 class="hero-headline">
+          Tired.Fun
+        </h1>
+        <p class="hero-subtitle">
+          Digital Collectibles and opinion markets. First on Robinhood
+        </p>
+
+        <div class="hero-cta">
+          <button type="button" class="btn-primary-purple" id="btn-signin-hero">
+            <img src="/brand/tired-pumpkin-face.png" alt="" width="22" height="22" style="border-radius:50%;object-fit:cover;" />
+            Sign in with Tired.fun
+          </button>
+        </div>
+
+        <!-- Reward Tiles -->
+        <ul class="reward-tiles" aria-label="Key highlights">
+          <!-- Card 1: 5,555 Collection on Robinhood -->
+          <li class="reward-tile reward-tile--gold">
+            <div class="tile-icon">
+              <!-- Golden Candy / Treat Badge SVG -->
+              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="filter:drop-shadow(0 0 6px rgba(255, 185, 73, 0.6))">
+                <defs>
+                  <radialGradient id="candy-ball" cx="50%" cy="85%" r="85%">
+                    <stop offset="0" stop-color="#FFF7E0"></stop>
+                    <stop offset=".45" stop-color="#FFD592"></stop>
+                    <stop offset="1" stop-color="#FFB949"></stop>
+                  </radialGradient>
+                  <linearGradient id="candy-wrap" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#FFD592"></stop>
+                    <stop offset="1" stop-color="#FFB949"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M12 6.6 7.6 1.4q2.2.9 4.4.5 2.2-.4 4.4.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
+                <path d="M12 17.4 7.6 22.6q2.2-.9 4.4-.5 2.2.4 4.4-.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
+                <circle cx="12" cy="12" r="6.2" fill="url(#candy-ball)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6"></circle>
+                <path d="M8.5 9.8q2.5-1.5 5.5-.6" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1.2" opacity=".8"></path>
+              </svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-label">Collection on Robinhood</span>
+              <strong class="tile-value">5,555</strong>
+              <span class="tile-note">Genesis Digital Collectibles</span>
+            </div>
+          </li>
+
+          <!-- Card 2: Opinion Market | 1% creator royalty -->
+          <li class="reward-tile reward-tile--purple">
+            <div class="tile-icon">
+              <!-- Purple Relic / Market Icon SVG -->
+              <svg viewBox="0 0 14 20" width="22" height="32" aria-hidden="true" style="filter:drop-shadow(0 0 8px rgba(158, 97, 250, 0.7))">
+                <defs>
+                  <linearGradient id="knock-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#F6EEFF"></stop>
+                    <stop offset=".35" stop-color="#C9A2FF"></stop>
+                    <stop offset="1" stop-color="#6A3DC4"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M7 1 C10 1 12.5 3.5 12.5 6.5 L12.5 17 C12.5 18 11.5 19 10.5 19 L3.5 19 C2.5 19 1.5 18 1.5 17 L1.5 6.5 C1.5 3.5 4 1 7 1 Z" fill="url(#knock-grad)" stroke="#4B1F9E" stroke-width=".8"></path>
+                <path d="M5 5 C6 4 8 4 9 5" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1" opacity=".9"></path>
+              </svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-label">Opinion Market</span>
+              <strong class="tile-value">Trade & Predict</strong>
+              <span class="tile-note">1% creator royalty</span>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Edge / Footer Links -->
+        <nav class="edge-nav" aria-label="Community Links">
+          <button type="button" class="edge-btn" id="btn-open-rules" aria-label="About Tired.fun" title="Details">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+              <path d="M14 3v5h5M9 13h6M9 17h4"></path>
+            </svg>
+          </button>
+
+          <a class="edge-btn" href="https://tired.fun" target="_blank" rel="noopener noreferrer" aria-label="Tired.fun" title="tired.fun">
+            <img src="/brand/tired-pumpkin-face.png" alt="tired.fun" width="20" height="20" style="border-radius:4px;object-fit:cover;" />
+          </a>
+
+          <a class="edge-btn" href="https://x.com/TheTiredFun" target="_blank" rel="noopener noreferrer" aria-label="@TheTiredFun on X" title="@TheTiredFun">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+            </svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Right Visual: The Tired Comic Banner Showcase -->
+      <div class="hero-right">
+        <div class="banner-showcase-card" id="banner-interactive-card" title="Click to Launch App & Candies!">
+          <img src="/tired-banner.jpg" alt="Tired.fun Banner Art" class="banner-inner-img" />
+          <!-- Changed from 'Click for candies' to 'Launch App', maintaining animation -->
+          <div class="banner-badge" id="btn-launch-app" data-url="">
+            <span>🚀</span> Launch App
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal 1: Sign In Dialog -->
+  <div class="modal-overlay" id="signin-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" data-close="signin-modal">&times;</button>
+      
+      <div class="modal-header">
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <img src="/brand/tired-pumpkin-face.png" alt="Tired" width="38" height="38" style="border-radius:10px;" />
+          <span style="font-weight:900;font-size:24px;color:#fff;">Tired<span style="color:var(--orange);">.fun</span></span>
+        </div>
+        <h2 class="modal-title">Welcome to Tired.fun</h2>
+        <p class="modal-subtitle">Sign up or connect to trade collectibles & opinion markets.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <button type="button" class="auth-btn auth-btn-white">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.52 12.27c0-.82-.07-1.6-.21-2.36H12v4.46h6.46a5.5 5.5 0 0 1-2.39 3.62v3h3.86c2.26-2.08 3.59-5.15 3.59-8.72Z"></path>
+            <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.86-3c-1.07.72-2.45 1.15-4.08 1.15-3.13 0-5.79-2.11-6.74-4.96H1.26v3.09A12 12 0 0 0 12 24Z"></path>
+            <path fill="#FBBC05" d="M5.26 14.28a7.2 7.2 0 0 1 0-4.56V6.63H1.26a12 12 0 0 0 0 10.74l4-3.09Z"></path>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.26 6.63l4 3.09C6.21 6.86 8.87 4.75 12 4.75Z"></path>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-divider">or connect a wallet</div>
+
+        <button type="button" class="auth-btn auth-btn-outline">
+          <span>🔮</span> Connect Web3 Wallet
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: The Collection -->
+  <div class="modal-overlay" id="collection-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" data-close="collection-modal">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">🎨 The 5,555 Collection</h2>
+        <p class="modal-subtitle">First digital collectibles & opinion market ecosystem on Robinhood.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;color:var(--text-body);font-size:14px;line-height:1.6;">
+        <img src="/tired-banner.jpg" alt="Collection Preview" style="width:100%;border-radius:14px;margin-bottom:8px;" />
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;">
+          <h4 style="color:#fff;font-size:15px;margin-bottom:4px;">✨ 5,555 Genesis Supply</h4>
+          <p>Unique generative digital collectibles featuring signature pop-comic art, pumpkin head variations, and custom traits.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;">
+          <h4 style="color:#fff;font-size:15px;margin-bottom:4px;">💰 1% Creator Royalty</h4>
+          <p>Enforced 1% creator royalties power ongoing development, community prize pools, and opinion market liquidity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: About -->
+  <div class="modal-overlay" id="about-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" data-close="about-modal">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">ℹ️ About Tired.Fun</h2>
+        <p class="modal-subtitle">The next evolution of digital collectibles & opinion markets.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;color:var(--text-body);font-size:14px;line-height:1.6;">
+        <p>
+          <strong style="color:#fff;">Tired.fun</strong> brings entertainment, collectibles, and real-time prediction markets together into one seamless experience.
+        </p>
+        <p>
+          Built for degenerate minds with high taste, Tired combines cultural comic art with prediction pools, rewarding holders and traders alike.
+        </p>
+        <div style="background:rgba(255,123,41,0.1);border:1px solid rgba(255,123,41,0.3);padding:14px;border-radius:12px;">
+          <h4 style="color:#ffab73;margin-bottom:4px;">🎯 First on Robinhood</h4>
+          <p>Partnering with premier distribution to bring accessible opinion markets and digital assets to millions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Scholarship Application -->
+  <div class="modal-overlay" id="scholarship-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" data-close="scholarship-modal">&times;</button>
+      <div class="modal-header">
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:28px;">🎓</span>
+          <h2 class="modal-title">Scholarship Application</h2>
+        </div>
+        <p class="modal-subtitle">Whitelist (WL) & Scholarship tier for Tired.fun</p>
+      </div>
+
+      <div style="text-align:center;padding:26px 18px;background:rgba(255,123,41,0.06);border:1px solid rgba(255,123,41,0.22);border-radius:18px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,123,41,0.18);border:1px solid var(--orange);color:#ffab73;font-size:12px;font-weight:800;padding:6px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">
+          ⏳ Coming Soon
+        </div>
+        <h3 style="color:#fff;font-size:20px;font-weight:900;margin-bottom:8px;">Scholarship Application Coming Soon</h3>
+        <p style="color:var(--text-body);font-size:14px;line-height:1.6;max-width:360px;margin:0 auto 20px;">
+          The Tired.fun Scholarship & Whitelist allocation phase will be announced first on our official X channel.
+        </p>
+        <a href="https://x.com/TheTiredFun" target="_blank" rel="noopener noreferrer" class="btn-primary-purple" style="display:inline-flex;text-decoration:none;justify-content:center;padding:12px 24px;width:100%;">
+          Follow @TheTiredFun for Updates
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    (function() {
+      // Modal helper functions
+      function openModal(id) {
+        const m = document.getElementById(id);
+        if (m) {
+          m.classList.add('open');
+          m.setAttribute('aria-hidden', 'false');
+        }
+      }
+      function closeModal(id) {
+        const m = document.getElementById(id);
+        if (m) {
+          m.classList.remove('open');
+          m.setAttribute('aria-hidden', 'true');
+        }
+      }
+
+      // Close buttons
+      document.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          closeModal(btn.getAttribute('data-close'));
+        });
+      });
+
+      // Close on backdrop click
+      document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+          }
+        });
+      });
+
+      // Escape key closes open modals
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-overlay.open').forEach(m => {
+            m.classList.remove('open');
+            m.setAttribute('aria-hidden', 'true');
+          });
+        }
+      });
+
+      // Nav buttons binding
+      const navCollection = document.getElementById('nav-collection-btn');
+      if (navCollection) navCollection.addEventListener('click', () => openModal('collection-modal'));
+
+      const navAbout = document.getElementById('nav-about-btn');
+      if (navAbout) navAbout.addEventListener('click', () => openModal('about-modal'));
+
+      const navScholarship = document.getElementById('nav-scholarship-btn');
+      if (navScholarship) navScholarship.addEventListener('click', () => openModal('scholarship-modal'));
+
+      // Sign In buttons
+      const btnHeaderSignin = document.getElementById('header-signin-btn');
+      if (btnHeaderSignin) btnHeaderSignin.addEventListener('click', () => openModal('signin-modal'));
+
+      const btnHeroSignin = document.getElementById('btn-signin-hero');
+      if (btnHeroSignin) btnHeroSignin.addEventListener('click', () => openModal('signin-modal'));
+
+      const btnRules = document.getElementById('btn-open-rules');
+      if (btnRules) btnRules.addEventListener('click', () => openModal('about-modal'));
+
+      // Particle treats explosion animation on card / Launch App click
+      const treats = ['🍬', '🍭', '✨', '🎃', '🦇', '🍫', '💀', '🚀'];
+      function triggerCandyAnimation(e) {
+        const clientX = e && e.clientX ? e.clientX : window.innerWidth * 0.7;
+        const clientY = e && e.clientY ? e.clientY : window.innerHeight * 0.5;
+
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            const p = document.createElement('div');
+            p.className = 'treat-particle';
+            p.textContent = treats[Math.floor(Math.random() * treats.length)];
+            p.style.left = (clientX + (Math.random() * 50 - 25)) + 'px';
+            p.style.top = (clientY + (Math.random() * 50 - 25)) + 'px';
+            p.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 1200);
+          }, i * 65);
+        }
+      }
+
+      const bannerCard = document.getElementById('banner-interactive-card');
+      const btnLaunchApp = document.getElementById('btn-launch-app');
+
+      if (bannerCard) {
+        bannerCard.addEventListener('click', (e) => {
+          triggerCandyAnimation(e);
+          // Placeholder for url navigation:
+          const url = btnLaunchApp.getAttribute('data-url');
+          if (url && url.trim() !== '') {
+            setTimeout(() => { window.location.href = url; }, 350);
+          }
+        });
+      }
+
+      if (btnLaunchApp) {
+        btnLaunchApp.addEventListener('click', (e) => {
+          e.stopPropagation();
+          triggerCandyAnimation(e);
+          const url = btnLaunchApp.getAttribute('data-url');
+          if (url && url.trim() !== '') {
+            setTimeout(() => { window.location.href = url; }, 350);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
