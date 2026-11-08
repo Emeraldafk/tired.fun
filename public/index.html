@@ -698,6 +698,9 @@
         <button type="button" id="nav-about-btn">About</button>
       </li>
       <li class="nav-item">
+        <button type="button" id="nav-partnership-btn">Partnership/Collab</button>
+      </li>
+      <li class="nav-item">
         <button type="button" class="nav-pill-wl" id="nav-scholarship-btn">
           <span>🎓</span> Scholarship (Coming Soon)
         </button>
@@ -930,6 +933,33 @@
     </div>
   </div>
 
+  <!-- Modal 5: Partnership/Collab -->
+  <div class="modal-overlay" id="partnership-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" data-close="partnership-modal">&times;</button>
+      <div class="modal-header">
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:28px;">🤝</span>
+          <h2 class="modal-title">Partnership & Collab</h2>
+        </div>
+        <p class="modal-subtitle">Collaborate with Tired.fun & the 5,555 Genesis Collection.</p>
+      </div>
+
+      <div style="text-align:center;padding:26px 18px;background:rgba(255,123,41,0.06);border:1px solid rgba(255,123,41,0.22);border-radius:18px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,123,41,0.18);border:1px solid var(--orange);color:#ffab73;font-size:12px;font-weight:800;padding:6px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">
+          ⏳ Coming Soon
+        </div>
+        <h3 style="color:#fff;font-size:20px;font-weight:900;margin-bottom:8px;">Partnership Portal Coming Soon</h3>
+        <p style="color:var(--text-body);font-size:14px;line-height:1.6;max-width:360px;margin:0 auto 20px;">
+          Our official collaboration & creator partnership portal is launching shortly. Reach out directly on X for inquiries.
+        </p>
+        <a href="https://x.com/TheTiredFun" target="_blank" rel="noopener noreferrer" class="btn-primary-purple" style="display:inline-flex;text-decoration:none;justify-content:center;padding:12px 24px;width:100%;">
+          Contact via @TheTiredFun on X
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Interactive JavaScript -->
   <script>
     (function() {
@@ -982,6 +1012,9 @@
 
       const navAbout = document.getElementById('nav-about-btn');
       if (navAbout) navAbout.addEventListener('click', () => openModal('about-modal'));
+
+      const navPartnership = document.getElementById('nav-partnership-btn');
+      if (navPartnership) navPartnership.addEventListener('click', () => openModal('partnership-modal'));
 
       const navScholarship = document.getElementById('nav-scholarship-btn');
       if (navScholarship) navScholarship.addEventListener('click', () => openModal('scholarship-modal'));
