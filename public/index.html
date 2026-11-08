@@ -648,29 +648,282 @@
       box-shadow: 0 0 10px rgba(255, 123, 41, 0.25);
     }
 
-    /* Responsive */
+    /* Responsive & Mobile Layout */
+    .mobile-nav-toggle {
+      display: none;
+    }
+    .mobile-nav-backdrop {
+      display: none;
+    }
+
     @media (max-width: 960px) {
+      .site-header {
+        padding: 16px 20px;
+      }
+
+      .brand-avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+      }
+
+      .brand-title {
+        font-size: 22px;
+      }
+
+      .brand-tag {
+        font-size: 10px;
+      }
+
+      .header-actions {
+        gap: 10px;
+      }
+
+      .header-btn {
+        padding: 7px 14px;
+        font-size: 13px;
+      }
+
+      /* Mobile Navigation Toggle Button */
+      .mobile-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        z-index: 101;
+      }
+
+      .mobile-nav-toggle:hover,
+      .mobile-nav-toggle.active {
+        background: rgba(255, 123, 41, 0.2);
+        border-color: var(--orange);
+      }
+
+      .mobile-nav-toggle .hamburger-line {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+
+      .mobile-nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .mobile-nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      .mobile-nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile Nav Dropdown Panel */
       .top-nav {
         display: none;
+        position: fixed;
+        top: 76px;
+        left: 16px;
+        right: 16px;
+        background: rgba(22, 19, 27, 0.97);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 123, 41, 0.3);
+        box-shadow: 
+          0 20px 50px rgba(0, 0, 0, 0.85),
+          0 0 35px rgba(255, 123, 41, 0.2);
+        border-radius: 20px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        z-index: 100;
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
       }
-      .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+
+      .top-nav.open {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
       }
-      .hero-left {
-        max-width: 100%;
-        align-items: center;
-      }
-      .reward-tiles {
-        max-width: 480px;
+
+      .top-nav .nav-item {
         width: 100%;
       }
+
+      .top-nav .nav-item button,
+      .top-nav .nav-item a {
+        width: 100%;
+        padding: 13px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        justify-content: flex-start;
+        text-align: left;
+        transition: all 0.2s ease;
+      }
+
+      .top-nav .nav-item button:hover,
+      .top-nav .nav-item button:active {
+        background: rgba(255, 123, 41, 0.15);
+        border-color: rgba(255, 123, 41, 0.4);
+        color: #ffab73;
+        transform: translateX(4px);
+      }
+
+      /* Mobile Nav Backdrop */
+      .mobile-nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 90;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .mobile-nav-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* Hero Section Layout on Mobile */
+      .hero-section {
+        padding: 105px 20px 50px;
+        min-height: auto;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .hero-left {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-headline {
+        font-size: clamp(36px, 10vw, 50px);
+        margin-bottom: 12px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+        line-height: 1.55;
+        max-width: 360px;
+        margin-bottom: 24px;
+      }
+
+      .hero-cta {
+        margin-bottom: 24px;
+        width: 100%;
+        max-width: 340px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-cta .btn-primary-purple {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 15px;
+      }
+
+      /* Reward Tiles: Stacked Vertically on Mobile (Trade & Predict under 5,555 Collection) */
+      .reward-tiles {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 360px;
+        width: 100%;
+        margin: 0 auto 26px;
+        padding: 0;
+      }
+
+      .reward-tile {
+        width: 100%;
+        padding: 16px 18px;
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .tile-info {
+        text-align: left;
+      }
+
+      .tile-value {
+        font-size: 22px;
+      }
+
+      .edge-nav {
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+
+      /* Hero Right: Banner Showcase Card */
+      .hero-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      .banner-showcase-card {
+        max-width: 380px;
+        width: 100%;
+        border-radius: 20px;
+        padding: 8px;
+      }
+
+      .banner-inner-img {
+        border-radius: 14px;
+      }
+
+      .banner-badge {
+        bottom: -12px;
+        right: 18px;
+        font-size: 13px;
+        padding: 7px 16px;
+      }
+
       .hero-banner-bg {
         background-position: center center;
       }
+
       .hero-banner-overlay {
-        background: linear-gradient(to bottom, rgba(14, 12, 17, 0.94) 0%, rgba(14, 12, 17, 0.75) 50%, rgba(14, 12, 17, 0.95) 100%);
+        background: linear-gradient(to bottom, rgba(14, 12, 17, 0.95) 0%, rgba(14, 12, 17, 0.78) 50%, rgba(14, 12, 17, 0.96) 100%);
+      }
+
+      .modal-card {
+        padding: 26px 20px;
+        max-height: 85vh;
       }
     }
   </style>
@@ -707,13 +960,21 @@
       </li>
     </ul>
 
-    <!-- Header CTA -->
+    <!-- Header CTA & Mobile Nav Toggle -->
     <div class="header-actions">
       <button type="button" class="header-btn" id="header-signin-btn">
         <span>🎃</span> Sign In
       </button>
+      <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Nav Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
 
   <!-- Hero Section -->
   <main class="hero-section">
@@ -814,10 +1075,10 @@
         </nav>
       </div>
 
-      <!-- Right Visual: The Tired Comic Banner Showcase -->
+      <!-- Right Visual: Launch App Preview Banner Showcase -->
       <div class="hero-right">
         <div class="banner-showcase-card" id="banner-interactive-card" title="Click to Launch App & Candies!">
-          <img src="/tired-banner.jpg" alt="Tired.fun Banner Art" class="banner-inner-img" />
+          <img src="/tired-app-banner.jpg" alt="Tired.fun App Interface" class="banner-inner-img" />
           <!-- Changed from 'Click for candies' to 'Launch App', maintaining animation -->
           <div class="banner-badge" id="btn-launch-app" data-url="">
             <span>🚀</span> Launch App
@@ -996,9 +1257,66 @@
         });
       });
 
-      // Escape key closes open modals
+      // Mobile Navigation Toggle
+      const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+      const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+      const topNav = document.querySelector('.top-nav');
+
+      function closeMobileNav() {
+        if (mobileNavToggle) {
+          mobileNavToggle.classList.remove('active');
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+        }
+        if (topNav) {
+          topNav.classList.remove('open');
+        }
+        if (mobileNavBackdrop) {
+          mobileNavBackdrop.classList.remove('open');
+        }
+      }
+
+      function toggleMobileNav() {
+        const isOpen = topNav && topNav.classList.contains('open');
+        if (isOpen) {
+          closeMobileNav();
+        } else {
+          if (mobileNavToggle) {
+            mobileNavToggle.classList.add('active');
+            mobileNavToggle.setAttribute('aria-expanded', 'true');
+          }
+          if (topNav) {
+            topNav.classList.add('open');
+          }
+          if (mobileNavBackdrop) {
+            mobileNavBackdrop.classList.add('open');
+          }
+        }
+      }
+
+      if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleMobileNav();
+        });
+      }
+
+      if (mobileNavBackdrop) {
+        mobileNavBackdrop.addEventListener('click', closeMobileNav);
+      }
+
+      // Automatically close mobile menu when a nav link is clicked
+      if (topNav) {
+        topNav.querySelectorAll('button, a').forEach(btn => {
+          btn.addEventListener('click', () => {
+            closeMobileNav();
+          });
+        });
+      }
+
+      // Escape key closes open modals and mobile nav
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
+          closeMobileNav();
           document.querySelectorAll('.modal-overlay.open').forEach(m => {
             m.classList.remove('open');
             m.setAttribute('aria-hidden', 'true');
