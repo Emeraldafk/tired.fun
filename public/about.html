@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en" class="ZdPV6W_variable">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>How It Works | Tired.Fun Perpetual Opinion Markets</title>
+  <meta name="description" content="Learn how Tired.Fun perpetual opinion markets work. Trade public conviction on independent bonding curves with zero oracles and zero expiry on Robinhood Chain." />
+  <link rel="icon" href="/brand/tired-pumpkin-face.png" type="image/png" />
+
+  <!-- Preload fonts & base styling -->
+  <link rel="stylesheet" href="/css/3vjwuw47noytk.css" />
+  <link rel="stylesheet" href="/css/0wufxibsr2124.css" />
+  <link rel="stylesheet" href="/css/12dqn050hih7e.css" />
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    :root {
+      --font-ui: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
+      --font-sans: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
+      --ink: #0e0c11;
+      --ink-2: #151318;
+      --panel: #19171c;
+      --panel-2: #211f26;
+      --panel-3: #27242c;
+      --line: #302d38;
+      --text: #fff;
+      --text-body: #cbc4d8;
+      --purple: #9e61fa;
+      --purple-hi: #b889ff;
+      --orange: #ff7b29;
+      --orange-hi: #ffa86b;
+      --cyan: #06b6d4;
+      --cyan-hi: #22d3ee;
+      --green: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--text);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Site Header Navigation */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      background: rgba(14, 12, 17, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .brand-lockup:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--orange);
+      box-shadow: 0 0 16px rgba(255, 123, 41, 0.5);
+      background: #140b1e;
+      flex-shrink: 0;
+    }
+
+    .brand-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--orange);
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9d9dad;
+      margin-top: 2px;
+    }
+
+    /* Top Navigation Links */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-item a,
+    .nav-item button {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item a:hover,
+    .nav-item button:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-item a.active {
+      color: var(--orange);
+      background: rgba(255, 123, 41, 0.1);
+      border: 1px solid rgba(255, 123, 41, 0.3);
+    }
+
+    .nav-pill-wl {
+      background: rgba(255, 123, 41, 0.12) !important;
+      border: 1px solid rgba(255, 123, 41, 0.35) !important;
+      color: #ffab73 !important;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .header-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .header-btn-primary {
+      background: linear-gradient(135deg, #ff7b29 0%, #e65c00 100%);
+      border: none;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(255, 123, 41, 0.45);
+    }
+
+    .header-btn-primary:hover {
+      background: linear-gradient(135deg, #ffa86b 0%, #ff7b29 100%);
+      box-shadow: 0 6px 24px rgba(255, 123, 41, 0.65);
+    }
+
+    /* User Session Pill in Header */
+    .user-session-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .user-pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 123, 41, 0.4);
+      color: #fff;
+      padding: 4px 12px 4px 5px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .user-pill-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--orange);
+    }
+
+    .user-dropdown-card {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #191622;
+      border: 1px solid rgba(255, 123, 41, 0.25);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 123, 41, 0.15);
+      border-radius: 18px;
+      padding: 16px;
+      width: 260px;
+      z-index: 120;
+      display: none;
+    }
+
+    .user-dropdown-card.open {
+      display: block;
+    }
+
+    /* Mobile Nav Toggle */
+    .mobile-nav-toggle {
+      display: none;
+    }
+
+    .mobile-nav-backdrop {
+      display: none;
+    }
+
+    /* Main Page Container */
+    .page-main {
+      padding-top: 100px;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Hero Section */
+    .how-hero {
+      position: relative;
+      padding: 60px 24px 80px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-glow-sphere {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255, 123, 41, 0.18) 0%, rgba(158, 97, 250, 0.12) 50%, transparent 75%);
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 123, 41, 0.12);
+      border: 1px solid rgba(255, 123, 41, 0.35);
+      color: #ffab73;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 10px var(--orange);
+      animation: pulseDot 1.5s infinite;
+    }
+
+    .how-title {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    .how-title .gradient-text {
+      background: linear-gradient(135deg, #ff7b29 0%, #ffa86b 50%, #9e61fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .how-desc {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.6;
+      color: var(--text-body);
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-actions {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action-primary {
+      background: linear-gradient(135deg, #ff7b29 0%, #e65c00 100%);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 30px rgba(255, 123, 41, 0.5);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-action-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 38px rgba(255, 123, 41, 0.7);
+    }
+
+    .btn-action-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-action-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Content Container */
+    .content-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Steps Section */
+    .steps-section {
+      margin-bottom: 90px;
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 50px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .step-card {
+      background: rgba(25, 23, 28, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 24px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 123, 41, 0.35);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 123, 41, 0.15);
+    }
+
+    .step-number {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.06);
+      line-height: 1;
+      font-family: inherit;
+    }
+
+    .step-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 22px;
+    }
+
+    .step-icon--orange {
+      background: rgba(255, 123, 41, 0.15);
+      border: 1px solid rgba(255, 123, 41, 0.35);
+      color: var(--orange);
+    }
+
+    .step-icon--cyan {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      color: var(--cyan);
+    }
+
+    .step-icon--purple {
+      background: rgba(158, 97, 250, 0.15);
+      border: 1px solid rgba(158, 97, 250, 0.35);
+      color: var(--purple);
+    }
+
+    .step-icon--green {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--green);
+    }
+
+    .step-heading {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .step-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-body);
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .step-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #dfd7ee;
+      align-self: flex-start;
+    }
+
+    /* Comparison Table Section */
+    .comparison-section {
+      margin-bottom: 90px;
+    }
+
+    .table-card {
+      background: rgba(25, 23, 28, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .comp-table th {
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .comp-table th.col-feature {
+      width: 25%;
+      color: #9d9dad;
+    }
+
+    .comp-table th.col-traditional {
+      width: 37.5%;
+      color: #ef4444;
+    }
+
+    .comp-table th.col-tired {
+      width: 37.5%;
+      color: #ffab73;
+      background: rgba(255, 123, 41, 0.08);
+      border-bottom: 2px solid var(--orange);
+    }
+
+    .comp-table td {
+      padding: 20px 24px;
+      font-size: 15px;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table td.cell-feature {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .comp-table td.cell-traditional {
+      color: #a8a2b5;
+    }
+
+    .comp-table td.cell-tired {
+      color: #fff;
+      font-weight: 600;
+      background: rgba(255, 123, 41, 0.03);
+    }
+
+    .badge-cross {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #f87171;
+      font-weight: 700;
+    }
+
+    .badge-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+      font-weight: 800;
+    }
+
+    /* Dual Curve Interactive Visual */
+    .curve-visual-section {
+      margin-bottom: 90px;
+    }
+
+    .curve-card {
+      background: linear-gradient(135deg, rgba(27, 24, 33, 0.95) 0%, rgba(18, 15, 23, 0.95) 100%);
+      border: 1px solid rgba(255, 123, 41, 0.25);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 123, 41, 0.12);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .curve-info h3 {
+      font-size: 30px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .curve-info p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-body);
+      margin-bottom: 24px;
+    }
+
+    .curve-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .curve-stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .curve-stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #9d9dad;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .curve-stat-val {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .curve-graph-wrap {
+      background: rgba(14, 12, 17, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .curve-svg-box {
+      width: 100%;
+      height: 240px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-bottom: 90px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(25, 23, 28, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(255, 123, 41, 0.3);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .faq-toggle-icon {
+      font-size: 20px;
+      color: var(--orange);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.25s ease;
+      padding: 0 24px;
+      color: var(--text-body);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding: 0 24px 22px;
+    }
+
+    /* Call to Action Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(255, 123, 41, 0.18) 0%, rgba(158, 97, 250, 0.15) 100%);
+      border: 1px solid rgba(255, 123, 41, 0.35);
+      border-radius: 28px;
+      padding: 60px 32px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 123, 41, 0.2);
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 16px;
+      color: var(--text-body);
+      max-width: 580px;
+      margin: 0 auto 32px;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 24px;
+      text-align: center;
+      color: #797686;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .site-header {
+        padding: 12px 16px;
+        flex-wrap: nowrap;
+      }
+      .top-nav {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        background: #181520;
+        border: 1px solid rgba(255, 123, 41, 0.45);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+        border-radius: 20px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        z-index: 650;
+      }
+      .top-nav.open {
+        display: flex;
+      }
+      .top-nav .nav-item {
+        width: 100%;
+      }
+      .top-nav .nav-item a,
+      .top-nav .nav-item button {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 15px;
+        font-weight: 800;
+        color: #fff;
+        justify-content: flex-start;
+      }
+      .mobile-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 12px;
+        cursor: pointer;
+        z-index: 610;
+        flex-shrink: 0;
+      }
+      .mobile-nav-toggle .hamburger-line {
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+      .mobile-nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .mobile-nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .mobile-nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 550;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      .mobile-nav-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .curve-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+      .comp-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .user-pill-btn {
+        padding: 3px 6px 3px 3px;
+        gap: 4px;
+      }
+      .user-pill-name {
+        display: none !important;
+      }
+      .brand-title {
+        font-size: 18px;
+      }
+      .brand-tag {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a class="brand-lockup" href="/" aria-label="Tired.fun">
+      <div class="brand-avatar">
+        <img src="/brand/tired-pumpkin-face.png" alt="Tired mascot" />
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">Tired<span>.fun</span></div>
+        <div class="brand-tag">First on Robinhood</div>
+      </div>
+    </a>
+
+    <!-- Top Navigation Menu -->
+    <ul class="top-nav" aria-label="Primary Navigation">
+      <li class="nav-item">
+        <a href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/collection">The Collection</a>
+      </li>
+      <li class="nav-item">
+        <a href="/about" class="active">How It Works</a>
+      </li>
+      <li class="nav-item">
+        <a href="/#scholarship" class="nav-pill-wl">
+          <span>🎓</span> Scholarship (Coming Soon)
+        </a>
+      </li>
+    </ul>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <a href="/" class="header-btn header-btn-primary" id="btn-header-launch">
+        <span>🚀</span> Launch App
+      </a>
+
+      <!-- Logged In User Pill -->
+      <div class="user-session-wrapper" id="user-session-wrapper" style="display:none;">
+        <button type="button" class="user-pill-btn" id="user-pill-btn" aria-label="User Account">
+          <img src="/brand/tired-pumpkin-face.png" alt="" class="user-pill-avatar" id="user-pill-avatar" />
+          <span class="user-pill-name" id="user-pill-name">User</span>
+          <span style="font-size:10px;">▼</span>
+        </button>
+        <div class="user-dropdown-card" id="user-dropdown-card">
+          <div style="font-weight:800;color:#fff;margin-bottom:4px;" id="user-dropdown-name">Degen Trader</div>
+          <div style="font-size:12px;color:#9d9dad;margin-bottom:12px;" id="user-dropdown-email">degen@tired.fun</div>
+          <button type="button" id="btn-signout" style="width:100%;padding:10px;background:rgba(239,68,68,0.15);border:none;border-radius:10px;color:#f87171;font-weight:700;cursor:pointer;">
+            Sign Out
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <!-- Page Body -->
+  <main class="page-main">
+    
+    <!-- Hero Section -->
+    <section class="how-hero">
+      <div class="hero-glow-sphere"></div>
+      
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        Perpetual Opinion Protocol • Robinhood Chain (46630)
+      </div>
+
+      <h1 class="how-title">
+        Trade Public Conviction.<br />
+        <span class="gradient-text">No Oracles. No Expiry.</span>
+      </h1>
+
+      <p class="how-desc">
+        Unlike traditional prediction markets that expire and require third-party judges to settle bets, 
+        <strong>Tired.Fun</strong> introduces continuous, algorithmic opinion markets. Every perspective trades 
+        on independent bonding curves with 100% instant liquidity, forever.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/" class="btn-action-primary">
+          <span>⚡</span> Trade on Tired.Fun
+        </a>
+        <a href="/collection" class="btn-action-outline">
+          <span>🎨</span> Explore 5,555 Collection
+        </a>
+      </div>
+    </section>
+
+    <div class="content-wrap">
+      
+      <!-- Steps / Architecture Section -->
+      <section class="steps-section">
+        <div class="section-eyebrow">The Architecture</div>
+        <h2 class="section-title">How Perpetual Opinion Markets Work</h2>
+
+        <div class="steps-grid">
+          
+          <!-- Step 1 -->
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon-box step-icon--orange">
+              <span>💬</span>
+            </div>
+            <h3 class="step-heading">Spawn from Any Debate</h3>
+            <p class="step-text">
+              Markets start from real internet discourse. Paste a tweet, Reddit dispute, or cultural thesis to spawn an on-chain market. 
+              Whether it’s crypto narratives, sports rivalries, or geopolitical convictions, any public opinion can be traded.
+            </p>
+            <div class="step-pill-tag">
+              <span>🎯</span> Permissionless Creation
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon-box step-icon--cyan">
+              <span>📈</span>
+            </div>
+            <h3 class="step-heading">Dual Independent Bonding Curves</h3>
+            <p class="step-text">
+              Every market creates two isolated tokens: <strong>YES</strong> and <strong>NO</strong>. Each token trades along its own mathematical bonding curve. 
+              As more capital enters a side, its price climbs predictably. As users take profit or exit, the curve redeems directly from the pool.
+            </p>
+            <div class="step-pill-tag">
+              <span>💧</span> 100% Instant Liquidity
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon-box step-icon--purple">
+              <span>⛓️</span>
+            </div>
+            <h3 class="step-heading">Zero Oracles & Never Expires</h3>
+            <p class="step-text">
+              Traditional prediction markets break because real-world events are ambiguous and centralized oracles can be exploited or disputed. 
+              Tired.Fun markets <strong>never settle or expire</strong>. Token value reflects pure, real-time public sentiment and capital momentum.
+            </p>
+            <div class="step-pill-tag">
+              <span>🛡️</span> Zero Settlement Risk
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon-box step-icon--green">
+              <span>💰</span>
+            </div>
+            <h3 class="step-heading">1% Creator Royalties Forever</h3>
+            <p class="step-text">
+              Curators who spawn viral debates are rewarded indefinitely. <strong>1% of all buy and sell volume</strong> generated by both curves is automatically 
+              streamed directly to the creator's wallet. Launching high-engagement opinions turns into sustainable cash flow.
+            </p>
+            <div class="step-pill-tag">
+              <span>👑</span> Automated Creator Royalties
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Comparison Table: Tired.Fun vs Traditional Prediction Markets -->
+      <section class="comparison-section">
+        <div class="section-eyebrow">The Evolution</div>
+        <h2 class="section-title">Prediction Markets vs. Perpetual Opinion Markets</h2>
+
+        <div class="table-card">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th class="col-feature">Feature</th>
+                <th class="col-traditional">Polymarket / Traditional</th>
+                <th class="col-tired">Tired.Fun (POV Model)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cell-feature">Market Lifespan</td>
+                <td class="cell-traditional"><span class="badge-cross">✕</span> Fixed expiration date (closes forever)</td>
+                <td class="cell-tired"><span class="badge-check">✓</span> <strong>Perpetual</strong> — Never expires, trades continuously</td>
+              </tr>
+              <tr>
+                <td class="cell-feature">Resolution & Oracles</td>
+                <td class="cell-traditional"><span class="badge-cross">✕</span> Relies on UMA / human judges / central oracles</td>
+                <td class="cell-tired"><span class="badge-check">✓</span> <strong>Zero Oracles</strong> — Pure algorithmic price discovery</td>
+              </tr>
+              <tr>
+                <td class="cell-feature">Capital Liquidity</td>
+                <td class="cell-traditional"><span class="badge-cross">✕</span> Funds locked until dispute window resolves</td>
+                <td class="cell-tired"><span class="badge-check">✓</span> <strong>100% Instant Exit</strong> backed by bonding curve reserve</td>
+              </tr>
+              <tr>
+                <td class="cell-feature">Market Scope</td>
+                <td class="cell-traditional"><span class="badge-cross">✕</span> Restricted to verifiable binary facts</td>
+                <td class="cell-tired"><span class="badge-check">✓</span> <strong>Any cultural opinion</strong>, debate, meme, or conviction</td>
+              </tr>
+              <tr>
+                <td class="cell-feature">Creator Monetization</td>
+                <td class="cell-traditional"><span class="badge-cross">✕</span> 0% revenue to users who created debate</td>
+                <td class="cell-tired"><span class="badge-check">✓</span> <strong>1% of all volume</strong> streamed to market creator forever</td>
+              </tr>
+              <tr>
+                <td class="cell-feature">Pricing Mechanism</td>
+                <td class="cell-traditional"><span class="badge-cross">✕</span> Order book bid/ask spread (illiquid tails)</td>
+                <td class="cell-tired"><span class="badge-check">✓</span> <strong>Dual Bonding Curves</strong> (YES & NO) with 0 counterparty risk</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Curve Math & Deep Dive -->
+      <section class="curve-visual-section">
+        <div class="curve-card">
+          <div class="curve-info">
+            <div style="font-size:12px;font-weight:800;color:var(--orange);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Bonding Curve Dynamics</div>
+            <h3>How the Bonding Curve Prices Tokens</h3>
+            <p>
+              When a user buys YES or NO tokens, the payment asset (ETH / Robinhood Chain native) is deposited directly into the smart contract vault. 
+              The contract computes token price using a deterministic power curve:
+            </p>
+            <div style="background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);padding:14px;border-radius:12px;font-family:monospace;font-size:16px;color:#ffab73;margin-bottom:20px;">
+              Price(S) = k &times; S<sup>2</sup>
+            </div>
+            <p>
+              As supply expands, each next token costs more. When exiting, the trader burns their tokens and withdraws the corresponding area under the curve 
+              instantly—guaranteeing continuous solvency with zero order book counterparty risk.
+            </p>
+
+            <div class="curve-stats-row">
+              <div class="curve-stat-box">
+                <div class="curve-stat-label">Liquidity Model</div>
+                <div class="curve-stat-val">AMM Curve</div>
+              </div>
+              <div class="curve-stat-box">
+                <div class="curve-stat-label">Settlement Delay</div>
+                <div class="curve-stat-val">0 Seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="curve-graph-wrap">
+            <svg class="curve-svg-box" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid lines -->
+              <line x1="40" y1="200" x2="380" y2="200" stroke="#302d38" stroke-width="1.5" />
+              <line x1="40" y1="30" x2="40" y2="200" stroke="#302d38" stroke-width="1.5" />
+              <line x1="40" y1="140" x2="380" y2="140" stroke="#25222e" stroke-dasharray="4 4" />
+              <line x1="40" y1="80" x2="380" y2="80" stroke="#25222e" stroke-dasharray="4 4" />
+
+              <!-- YES Curve (Cyan) -->
+              <path d="M 40 195 Q 220 185 360 45" stroke="#06b6d4" stroke-width="3.5" fill="none" />
+              <circle cx="360" cy="45" r="5" fill="#06b6d4" />
+
+              <!-- NO Curve (Orange) -->
+              <path d="M 40 198 Q 200 192 360 100" stroke="#ff7b29" stroke-width="3" fill="none" stroke-dasharray="6 3" />
+              <circle cx="360" cy="100" r="5" fill="#ff7b29" />
+
+              <!-- Labels -->
+              <text x="365" y="45" fill="#22d3ee" font-size="12" font-weight="bold">YES Curve</text>
+              <text x="365" y="105" fill="#ffa86b" font-size="12" font-weight="bold">NO Curve</text>
+              <text x="40" y="222" fill="#797686" font-size="11">Supply Minted &rarr;</text>
+              <text x="10" y="30" fill="#797686" font-size="11" transform="rotate(-90 20,40)">Price &rarr;</text>
+            </svg>
+            <div style="font-size:12px;color:#9d9dad;margin-top:12px;">
+              Dual independent bonding curves running simultaneously on Robinhood Chain
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="section-eyebrow">Got Questions?</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+          
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Why don't markets ever expire?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Traditional markets expire because they bet on a single fixed timestamp (e.g. "Will Candidate X win on Nov 5?"). 
+              Tired.Fun is built on cultural sentiment and perpetual conviction. Beliefs and opinions shift over weeks, months, and cycles. 
+              By letting markets run perpetually, traders can buy early conviction, take profit on hype surges, or hold long-term stances without arbitrary expiration dates.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How do I make a profit trading opinions?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              When you purchase YES or NO tokens early in a market's lifecycle, you purchase along the lower end of the bonding curve. 
+              As more participants agree with your stance and buy tokens, the price moves higher along the curve. 
+              You can sell your tokens back to the smart contract vault at any time to lock in profits instantly.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How are 1% creator royalties paid out?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Whenever a buy or sell transaction executes on either the YES or NO curve of your spawned market, a 1% protocol fee is deducted 
+              and sent directly to the creator's connected address on Robinhood Chain. Royalties are non-custodial and stream in real time.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What network does Tired.Fun operate on?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Tired.Fun is built natively on the <strong>Robinhood Chain Testnet (Chain ID 46630)</strong>, offering sub-second transaction finality, 
+              negligible gas fees, and deep connectivity to Robinhood's next-generation retail ecosystem.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Bottom CTA Banner -->
+      <div class="cta-banner">
+        <h2>Ready to Put Capital Behind Your POV?</h2>
+        <p>Join thousands of traders trading live sentiment, spawning markets, and earning creator royalties on Robinhood Chain.</p>
+        <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+          <a href="/" class="btn-action-primary">
+            <span>🚀</span> Launch Tired.Fun App
+          </a>
+          <a href="/collection" class="btn-action-outline">
+            <span>🖼️</span> View 5,555 Sneak Peeks
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/collection">The Collection</a></li>
+      <li><a href="/about">How It Works</a></li>
+      <li><a href="https://x.com/TheTiredFun" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+      <li><a href="https://tired.fun" target="_blank" rel="noopener noreferrer">Tired.fun</a></li>
+    </ul>
+    <div>&copy; 2026 Tired.Fun. Perpetual Opinion Protocol on Robinhood Chain (46630). All rights reserved.</div>
+  </footer>
+
+  <script>
+    (function() {
+      // Mobile Navigation
+      const toggle = document.getElementById('mobile-nav-toggle');
+      const nav = document.querySelector('.top-nav');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+
+      function toggleNav() {
+        const isOpen = nav.classList.contains('open');
+        if (isOpen) {
+          nav.classList.remove('open');
+          toggle.classList.remove('active');
+          backdrop.classList.remove('open');
+        } else {
+          nav.classList.add('open');
+          toggle.classList.add('active');
+          backdrop.classList.add('open');
+        }
+      }
+
+      if (toggle) toggle.addEventListener('click', toggleNav);
+      if (backdrop) backdrop.addEventListener('click', toggleNav);
+
+      // FAQ Accordion
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.parentElement;
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+
+      // Restore user session if logged in
+      const rawUser = localStorage.getItem('tired_user');
+      if (rawUser) {
+        try {
+          const user = JSON.parse(rawUser);
+          const wrap = document.getElementById('user-session-wrapper');
+          if (wrap) {
+            wrap.style.display = 'block';
+            document.getElementById('user-pill-name').textContent = user.name || 'User';
+            if (user.avatar) document.getElementById('user-pill-avatar').src = user.avatar;
+            document.getElementById('user-dropdown-name').textContent = user.name || 'User';
+            document.getElementById('user-dropdown-email').textContent = user.email || '';
+          }
+        } catch (e) {}
+      }
+
+      const pill = document.getElementById('user-pill-btn');
+      const drop = document.getElementById('user-dropdown-card');
+      if (pill && drop) {
+        pill.addEventListener('click', (e) => {
+          e.stopPropagation();
+          drop.classList.toggle('open');
+        });
+        document.addEventListener('click', () => drop.classList.remove('open'));
+      }
+
+      const btnSignout = document.getElementById('btn-signout');
+      if (btnSignout) {
+        btnSignout.addEventListener('click', () => {
+          localStorage.removeItem('tired_user');
+          location.reload();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

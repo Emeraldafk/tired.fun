@@ -1102,7 +1102,9 @@
       }
 
       .top-nav .nav-item button:hover,
-      .top-nav .nav-item button:active {
+      .top-nav .nav-item button:active,
+      .top-nav .nav-item a:hover,
+      .top-nav .nav-item a:active {
         background: rgba(255, 123, 41, 0.2);
         border-color: var(--orange);
         color: #fff;
@@ -1284,10 +1286,10 @@
     <!-- Top Navigation Menu -->
     <ul class="top-nav" aria-label="Primary Navigation">
       <li class="nav-item">
-        <button type="button" id="nav-collection-btn">The Collection</button>
+        <a href="/collection" id="nav-collection-btn">The Collection</a>
       </li>
       <li class="nav-item">
-        <button type="button" id="nav-about-btn">About</button>
+        <a href="/about" id="nav-about-btn">How It Works</a>
       </li>
       <li class="nav-item">
         <button type="button" id="nav-partnership-btn">Partnership/Collab</button>
@@ -1378,65 +1380,69 @@
         <ul class="reward-tiles" aria-label="Key highlights">
           <!-- Card 1: 5,555 Collection on Robinhood -->
           <li class="reward-tile reward-tile--gold">
-            <div class="tile-icon">
-              <!-- Golden Candy / Treat Badge SVG -->
-              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="filter:drop-shadow(0 0 6px rgba(255, 185, 73, 0.6))">
-                <defs>
-                  <radialGradient id="candy-ball" cx="50%" cy="85%" r="85%">
-                    <stop offset="0" stop-color="#FFF7E0"></stop>
-                    <stop offset=".45" stop-color="#FFD592"></stop>
-                    <stop offset="1" stop-color="#FFB949"></stop>
-                  </radialGradient>
-                  <linearGradient id="candy-wrap" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#FFD592"></stop>
-                    <stop offset="1" stop-color="#FFB949"></stop>
-                  </linearGradient>
-                </defs>
-                <path d="M12 6.6 7.6 1.4q2.2.9 4.4.5 2.2-.4 4.4.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
-                <path d="M12 17.4 7.6 22.6q2.2-.9 4.4-.5 2.2.4 4.4-.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
-                <circle cx="12" cy="12" r="6.2" fill="url(#candy-ball)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6"></circle>
-                <path d="M8.5 9.8q2.5-1.5 5.5-.6" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1.2" opacity=".8"></path>
-              </svg>
-            </div>
-            <div class="tile-info">
-              <span class="tile-label">Collection on Robinhood</span>
-              <strong class="tile-value">5,555</strong>
-              <span class="tile-note">Genesis Digital Collectibles</span>
-            </div>
+            <a href="/collection" style="display:flex;align-items:center;gap:16px;width:100%;text-decoration:none;color:inherit;">
+              <div class="tile-icon">
+                <!-- Golden Candy / Treat Badge SVG -->
+                <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="filter:drop-shadow(0 0 6px rgba(255, 185, 73, 0.6))">
+                  <defs>
+                    <radialGradient id="candy-ball" cx="50%" cy="85%" r="85%">
+                      <stop offset="0" stop-color="#FFF7E0"></stop>
+                      <stop offset=".45" stop-color="#FFD592"></stop>
+                      <stop offset="1" stop-color="#FFB949"></stop>
+                    </radialGradient>
+                    <linearGradient id="candy-wrap" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#FFD592"></stop>
+                      <stop offset="1" stop-color="#FFB949"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path d="M12 6.6 7.6 1.4q2.2.9 4.4.5 2.2-.4 4.4.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
+                  <path d="M12 17.4 7.6 22.6q2.2-.9 4.4-.5 2.2.4 4.4-.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
+                  <circle cx="12" cy="12" r="6.2" fill="url(#candy-ball)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6"></circle>
+                  <path d="M8.5 9.8q2.5-1.5 5.5-.6" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1.2" opacity=".8"></path>
+                </svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-label">Collection on Robinhood</span>
+                <strong class="tile-value">5,555</strong>
+                <span class="tile-note">Genesis Digital Collectibles</span>
+              </div>
+            </a>
           </li>
 
           <!-- Card 2: Opinion Market | 1% creator royalty -->
           <li class="reward-tile reward-tile--purple">
-            <div class="tile-icon">
-              <!-- Purple Relic / Market Icon SVG -->
-              <svg viewBox="0 0 14 20" width="22" height="32" aria-hidden="true" style="filter:drop-shadow(0 0 8px rgba(158, 97, 250, 0.7))">
-                <defs>
-                  <linearGradient id="knock-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#F6EEFF"></stop>
-                    <stop offset=".35" stop-color="#C9A2FF"></stop>
-                    <stop offset="1" stop-color="#6A3DC4"></stop>
-                  </linearGradient>
-                </defs>
-                <path d="M7 1 C10 1 12.5 3.5 12.5 6.5 L12.5 17 C12.5 18 11.5 19 10.5 19 L3.5 19 C2.5 19 1.5 18 1.5 17 L1.5 6.5 C1.5 3.5 4 1 7 1 Z" fill="url(#knock-grad)" stroke="#4B1F9E" stroke-width=".8"></path>
-                <path d="M5 5 C6 4 8 4 9 5" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1" opacity=".9"></path>
-              </svg>
-            </div>
-            <div class="tile-info">
-              <span class="tile-label">Opinion Market</span>
-              <strong class="tile-value">Trade & Predict</strong>
-              <span class="tile-note">1% creator royalty</span>
-            </div>
+            <a href="/about" style="display:flex;align-items:center;gap:16px;width:100%;text-decoration:none;color:inherit;">
+              <div class="tile-icon">
+                <!-- Purple Relic / Market Icon SVG -->
+                <svg viewBox="0 0 14 20" width="22" height="32" aria-hidden="true" style="filter:drop-shadow(0 0 8px rgba(158, 97, 250, 0.7))">
+                  <defs>
+                    <linearGradient id="knock-grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#F6EEFF"></stop>
+                      <stop offset=".35" stop-color="#C9A2FF"></stop>
+                      <stop offset="1" stop-color="#6A3DC4"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path d="M7 1 C10 1 12.5 3.5 12.5 6.5 L12.5 17 C12.5 18 11.5 19 10.5 19 L3.5 19 C2.5 19 1.5 18 1.5 17 L1.5 6.5 C1.5 3.5 4 1 7 1 Z" fill="url(#knock-grad)" stroke="#4B1F9E" stroke-width=".8"></path>
+                  <path d="M5 5 C6 4 8 4 9 5" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1" opacity=".9"></path>
+                </svg>
+              </div>
+              <div class="tile-info">
+                <span class="tile-label">Opinion Market</span>
+                <strong class="tile-value">Trade & Predict</strong>
+                <span class="tile-note">1% creator royalty</span>
+              </div>
+            </a>
           </li>
         </ul>
 
         <!-- Edge / Footer Links -->
         <nav class="edge-nav" aria-label="Community Links">
-          <button type="button" class="edge-btn" id="btn-open-rules" aria-label="About Tired.fun" title="Details">
+          <a class="edge-btn" id="btn-open-rules" href="/about" aria-label="About Tired.fun" title="Details & How It Works">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
               <path d="M14 3v5h5M9 13h6M9 17h4"></path>
             </svg>
-          </button>
+          </a>
 
           <a class="edge-btn" href="https://tired.fun" target="_blank" rel="noopener noreferrer" aria-label="Tired.fun" title="tired.fun">
             <img src="/brand/tired-pumpkin-face.png" alt="tired.fun" width="20" height="20" style="border-radius:4px;object-fit:cover;" />
@@ -1496,51 +1502,6 @@
         <button type="button" class="auth-btn auth-btn-outline">
           <span>🔮</span> Connect Web3 Wallet
         </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 2: The Collection -->
-  <div class="modal-overlay" id="collection-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button type="button" class="modal-close-btn" data-close="collection-modal">&times;</button>
-      <div class="modal-header">
-        <h2 class="modal-title">🎨 The 5,555 Collection</h2>
-        <p class="modal-subtitle">First digital collectibles & opinion market ecosystem on Robinhood.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:14px;color:var(--text-body);font-size:14px;line-height:1.6;">
-        <img src="/tired-banner.jpg" alt="Collection Preview" style="width:100%;border-radius:14px;margin-bottom:8px;" />
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;">
-          <h4 style="color:#fff;font-size:15px;margin-bottom:4px;">✨ 5,555 Genesis Supply</h4>
-          <p>Unique generative digital collectibles featuring signature pop-comic art, pumpkin head variations, and custom traits.</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;">
-          <h4 style="color:#fff;font-size:15px;margin-bottom:4px;">💰 1% Creator Royalty</h4>
-          <p>Enforced 1% creator royalties power ongoing development, community prize pools, and opinion market liquidity.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 3: About -->
-  <div class="modal-overlay" id="about-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button type="button" class="modal-close-btn" data-close="about-modal">&times;</button>
-      <div class="modal-header">
-        <h2 class="modal-title">ℹ️ About Tired.Fun</h2>
-        <p class="modal-subtitle">The next evolution of digital collectibles & opinion markets.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:14px;color:var(--text-body);font-size:14px;line-height:1.6;">
-        <p>
-          <strong style="color:#fff;">Tired.fun</strong> brings entertainment, collectibles, and real-time prediction markets together into one seamless experience.
-        </p>
-        <p>
-          Built for degenerate minds with high taste, Tired combines cultural comic art with prediction pools, rewarding holders and traders alike.
-        </p>
-        <div style="background:rgba(255,123,41,0.1);border:1px solid rgba(255,123,41,0.3);padding:14px;border-radius:12px;">
-          <h4 style="color:#ffab73;margin-bottom:4px;">🎯 First on Robinhood</h4>
-          <p>Partnering with premier distribution to bring accessible opinion markets and digital assets to millions.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -1820,12 +1781,6 @@
       });
 
       // Nav buttons binding
-      const navCollection = document.getElementById('nav-collection-btn');
-      if (navCollection) navCollection.addEventListener('click', () => openModal('collection-modal'));
-
-      const navAbout = document.getElementById('nav-about-btn');
-      if (navAbout) navAbout.addEventListener('click', () => openModal('about-modal'));
-
       const navPartnership = document.getElementById('nav-partnership-btn');
       if (navPartnership) navPartnership.addEventListener('click', () => openModal('partnership-modal'));
 
@@ -2064,8 +2019,6 @@
         });
       }
 
-      const btnRules = document.getElementById('btn-open-rules');
-      if (btnRules) btnRules.addEventListener('click', () => openModal('about-modal'));
 
       // Google Sign-In triggers
       const btnGoogleSignin = document.getElementById('btn-google-signin');

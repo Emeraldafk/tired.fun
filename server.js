@@ -38,13 +38,43 @@ const server = http.createServer((req, res) => {
     return res.end('Forbidden');
   }
 
-  fs.stat(filePath, (err, stats) => {
-    if (err || !stats.isFile()) {
+  // Support clean URLs: /about -> /about.html, /collection -> /collection.html, /how-it-works -> /about.html
+  function resolveFilePath(targetPath, callback) {
+    fs.stat(targetPath, (err, stats) => {
+      if (!err && stats.isFile()) {
+        return callback(null, targetPath, stats);
+      }
+
+      // Check if appending .html matches a file
+      const htmlPath = targetPath + '.html';
+      fs.stat(htmlPath, (htmlErr, htmlStats) => {
+        if (!htmlErr && htmlStats.isFile()) {
+          return callback(null, htmlPath, htmlStats);
+        }
+
+        // Alias /how-it-works to about.html
+        if (reqPath === '/how-it-works' || reqPath === '/how-it-works.html') {
+          const aboutPath = path.join(PUBLIC_DIR, 'about.html');
+          return fs.stat(aboutPath, (aErr, aStats) => {
+            if (!aErr && aStats.isFile()) {
+              return callback(null, aboutPath, aStats);
+            }
+            callback(new Error('Not Found'));
+          });
+        }
+
+        callback(new Error('Not Found'));
+      });
+    });
+  }
+
+  resolveFilePath(filePath, (err, finalPath, stats) => {
+    if (err) {
       res.statusCode = 404;
       return res.end('Not Found');
     }
 
-    const ext = path.extname(filePath).toLowerCase();
+    const ext = path.extname(finalPath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
     // Support HTTP Range requests (crucial for streaming mp3/wav audio properly in browsers)
@@ -54,7 +84,7 @@ const server = http.createServer((req, res) => {
       const start = parseInt(parts[0], 10);
       const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
       const chunksize = (end - start) + 1;
-      const file = fs.createReadStream(filePath, { start, end });
+      const file = fs.createReadStream(finalPath, { start, end });
       res.writeHead(206, {
         'Content-Range': `bytes ${start}-${end}/${stats.size}`,
         'Accept-Ranges': 'bytes',
@@ -69,7 +99,7 @@ const server = http.createServer((req, res) => {
         'Content-Type': contentType,
         'Access-Control-Allow-Origin': '*'
       });
-      fs.createReadStream(filePath).pipe(res);
+      fs.createReadStream(finalPath).pipe(res);
     }
   });
 });

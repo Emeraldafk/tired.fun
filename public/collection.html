@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en" class="ZdPV6W_variable">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>The 5,555 Genesis Collection | Tired.Fun Sneak Peeks & Utility</title>
+  <meta name="description" content="Explore the official 5,555 Tired Genesis digital collectibles collection on Robinhood Chain. View detailed sneak peek frames, comic lore, rarity traits, and opinion market utility." />
+  <link rel="icon" href="/brand/tired-pumpkin-face.png" type="image/png" />
+
+  <!-- Preload fonts & base styling -->
+  <link rel="stylesheet" href="/css/3vjwuw47noytk.css" />
+  <link rel="stylesheet" href="/css/0wufxibsr2124.css" />
+  <link rel="stylesheet" href="/css/12dqn050hih7e.css" />
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    :root {
+      --font-ui: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
+      --font-sans: "Nunito", "Nunito Fallback", system-ui, -apple-system, sans-serif;
+      --ink: #0e0c11;
+      --ink-2: #151318;
+      --panel: #19171c;
+      --panel-2: #211f26;
+      --panel-3: #27242c;
+      --line: #302d38;
+      --text: #fff;
+      --text-body: #cbc4d8;
+      --purple: #9e61fa;
+      --purple-hi: #b889ff;
+      --orange: #ff7b29;
+      --orange-hi: #ffa86b;
+      --gold: #ffb949;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--text);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Site Header Navigation */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      background: rgba(14, 12, 17, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .brand-lockup:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--orange);
+      box-shadow: 0 0 16px rgba(255, 123, 41, 0.5);
+      background: #140b1e;
+      flex-shrink: 0;
+    }
+
+    .brand-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--orange);
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9d9dad;
+      margin-top: 2px;
+    }
+
+    /* Top Navigation Links */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-item a,
+    .nav-item button {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item a:hover,
+    .nav-item button:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-item a.active {
+      color: var(--orange);
+      background: rgba(255, 123, 41, 0.1);
+      border: 1px solid rgba(255, 123, 41, 0.3);
+    }
+
+    .nav-pill-wl {
+      background: rgba(255, 123, 41, 0.12) !important;
+      border: 1px solid rgba(255, 123, 41, 0.35) !important;
+      color: #ffab73 !important;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .header-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .header-btn-primary {
+      background: linear-gradient(135deg, #ff7b29 0%, #e65c00 100%);
+      border: none;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(255, 123, 41, 0.45);
+    }
+
+    /* User Session Pill in Header */
+    .user-session-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .user-pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 123, 41, 0.4);
+      color: #fff;
+      padding: 4px 12px 4px 5px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .user-pill-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--orange);
+    }
+
+    .user-dropdown-card {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #191622;
+      border: 1px solid rgba(255, 123, 41, 0.25);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 123, 41, 0.15);
+      border-radius: 18px;
+      padding: 16px;
+      width: 260px;
+      z-index: 120;
+      display: none;
+    }
+
+    .user-dropdown-card.open {
+      display: block;
+    }
+
+    /* Mobile Nav Toggle */
+    .mobile-nav-toggle {
+      display: none;
+    }
+
+    .mobile-nav-backdrop {
+      display: none;
+    }
+
+    /* Page Container */
+    .page-main {
+      padding-top: 100px;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Collection Hero */
+    .collection-hero {
+      position: relative;
+      padding: 60px 24px 70px;
+      text-align: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .hero-glow-sphere {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 650px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(255, 185, 73, 0.2) 0%, rgba(158, 97, 250, 0.15) 50%, transparent 75%);
+      filter: blur(70px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 185, 73, 0.12);
+      border: 1px solid rgba(255, 185, 73, 0.35);
+      color: #ffd592;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffb949;
+      box-shadow: 0 0 10px #ffb949;
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+      color: #fff;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #ffd592 0%, #ff7b29 50%, #b889ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.6;
+      color: var(--text-body);
+      max-width: 780px;
+      margin: 0 auto 36px;
+    }
+
+    /* Key Stats Bar */
+    .stats-bar {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 920px;
+      margin: 0 auto 40px;
+    }
+
+    .stat-pill {
+      background: rgba(25, 23, 28, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px 16px;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .stat-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 185, 73, 0.35);
+    }
+
+    .stat-val {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #9d9dad;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Content Area */
+    .content-wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px 90px;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-body);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, rgba(255, 123, 41, 0.25) 0%, rgba(158, 97, 250, 0.25) 100%);
+      border-color: var(--orange);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(255, 123, 41, 0.3);
+    }
+
+    /* Sneak Peek Frames Grid */
+    .frames-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .sneak-frame-card {
+      background: #191622;
+      border: 2px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      padding: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sneak-frame-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: var(--orange);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 35px rgba(255, 123, 41, 0.35);
+    }
+
+    /* Outer Holographic Glow on Legendary Cards */
+    .sneak-frame-card--legendary {
+      border-color: rgba(255, 185, 73, 0.45);
+      box-shadow: 0 10px 30px rgba(255, 185, 73, 0.15);
+    }
+
+    .sneak-frame-card--legendary:hover {
+      border-color: #ffb949;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 185, 73, 0.5);
+    }
+
+    .frame-img-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: #110e17;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+      margin-bottom: 12px;
+    }
+
+    .frame-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .sneak-frame-card:hover .frame-img-box img {
+      transform: scale(1.06);
+    }
+
+    .frame-badge-top {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(14, 12, 17, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffab73;
+    }
+
+    .frame-number-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(14, 12, 17, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .frame-info {
+      padding: 4px 6px 6px;
+    }
+
+    .frame-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .frame-traits-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .trait-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbc4d8;
+    }
+
+    .trait-pill--legendary {
+      background: rgba(255, 185, 73, 0.15);
+      border-color: rgba(255, 185, 73, 0.35);
+      color: #ffd592;
+    }
+
+    .frame-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 8px;
+      margin-top: auto;
+    }
+
+    .frame-rarity {
+      font-size: 11px;
+      font-weight: 800;
+      color: #a8a2b5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .frame-inspect-btn {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Utility & Perks Section */
+    .utility-section {
+      background: linear-gradient(135deg, rgba(27, 23, 33, 0.9) 0%, rgba(18, 15, 23, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      padding: 50px 40px;
+      margin-bottom: 80px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .perk-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .perk-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 123, 41, 0.35);
+    }
+
+    .perk-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .perk-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .perk-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    /* Trait Matrix Breakdown */
+    .trait-matrix-section {
+      margin-bottom: 80px;
+    }
+
+    .traits-category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .trait-category-card {
+      background: rgba(25, 23, 28, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .trait-cat-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffab73;
+      margin-bottom: 6px;
+    }
+
+    .trait-cat-count {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .trait-cat-examples {
+      font-size: 12px;
+      color: #9d9dad;
+      line-height: 1.5;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .lightbox-modal.open {
+      display: flex;
+    }
+
+    .lightbox-card {
+      background: #17141f;
+      border: 1px solid rgba(255, 123, 41, 0.4);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 123, 41, 0.25);
+      border-radius: 24px;
+      max-width: 640px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .lightbox-img-wrap {
+      width: 100%;
+      max-height: 380px;
+      overflow: hidden;
+      background: #0d0b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lightbox-content {
+      padding: 24px;
+    }
+
+    .lightbox-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .lightbox-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .lightbox-number {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--orange);
+      background: rgba(255, 123, 41, 0.15);
+      border: 1px solid rgba(255, 123, 41, 0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .lightbox-traits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .lightbox-trait-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    .lightbox-trait-type {
+      font-size: 10px;
+      font-weight: 700;
+      color: #9d9dad;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .lightbox-trait-val {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 24px;
+      text-align: center;
+      color: #797686;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .site-header {
+        padding: 12px 16px;
+        flex-wrap: nowrap;
+      }
+      .top-nav {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 14px;
+        right: 14px;
+        background: #181520;
+        border: 1px solid rgba(255, 123, 41, 0.45);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+        border-radius: 20px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        z-index: 650;
+      }
+      .top-nav.open {
+        display: flex;
+      }
+      .top-nav .nav-item {
+        width: 100%;
+      }
+      .top-nav .nav-item a,
+      .top-nav .nav-item button {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 15px;
+        font-weight: 800;
+        color: #fff;
+        justify-content: flex-start;
+      }
+      .mobile-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 12px;
+        cursor: pointer;
+        z-index: 610;
+        flex-shrink: 0;
+      }
+      .mobile-nav-toggle .hamburger-line {
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+      .mobile-nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .mobile-nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .mobile-nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 550;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      .mobile-nav-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .frames-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .perks-grid {
+        grid-template-columns: 1fr;
+      }
+      .traits-category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .frames-grid {
+        grid-template-columns: 1fr;
+      }
+      .lightbox-traits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .user-pill-btn {
+        padding: 3px 6px 3px 3px;
+        gap: 4px;
+      }
+      .user-pill-name {
+        display: none !important;
+      }
+      .brand-title {
+        font-size: 18px;
+      }
+      .brand-tag {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <a class="brand-lockup" href="/" aria-label="Tired.fun">
+      <div class="brand-avatar">
+        <img src="/brand/tired-pumpkin-face.png" alt="Tired mascot" />
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">Tired<span>.fun</span></div>
+        <div class="brand-tag">First on Robinhood</div>
+      </div>
+    </a>
+
+    <!-- Top Navigation Menu -->
+    <ul class="top-nav" aria-label="Primary Navigation">
+      <li class="nav-item">
+        <a href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/collection" class="active">The Collection</a>
+      </li>
+      <li class="nav-item">
+        <a href="/about">How It Works</a>
+      </li>
+      <li class="nav-item">
+        <a href="/#scholarship" class="nav-pill-wl">
+          <span>🎓</span> Scholarship (Coming Soon)
+        </a>
+      </li>
+    </ul>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <a href="/" class="header-btn header-btn-primary">
+        <span>🚀</span> Launch App
+      </a>
+
+      <!-- Logged In User Pill -->
+      <div class="user-session-wrapper" id="user-session-wrapper" style="display:none;">
+        <button type="button" class="user-pill-btn" id="user-pill-btn" aria-label="User Account">
+          <img src="/brand/tired-pumpkin-face.png" alt="" class="user-pill-avatar" id="user-pill-avatar" />
+          <span class="user-pill-name" id="user-pill-name">User</span>
+          <span style="font-size:10px;">▼</span>
+        </button>
+        <div class="user-dropdown-card" id="user-dropdown-card">
+          <div style="font-weight:800;color:#fff;margin-bottom:4px;" id="user-dropdown-name">Degen Trader</div>
+          <div style="font-size:12px;color:#9d9dad;margin-bottom:12px;" id="user-dropdown-email">degen@tired.fun</div>
+          <button type="button" id="btn-signout" style="width:100%;padding:10px;background:rgba(239,68,68,0.15);border:none;border-radius:10px;color:#f87171;font-weight:700;cursor:pointer;">
+            Sign Out
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <!-- Page Main -->
+  <main class="page-main">
+    
+    <!-- Collection Hero -->
+    <section class="collection-hero">
+      <div class="hero-glow-sphere"></div>
+      
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        5,555 Genesis Supply • Robinhood Chain (46630)
+      </div>
+
+      <h1 class="hero-title">
+        The Tired Collection.<br />
+        <span class="gradient-text">Pop-Comic Art & Opinion Staking.</span>
+      </h1>
+
+      <p class="hero-desc">
+        A premier generative collectible universe merging signature comic artwork, pumpkin-head variations, 
+        and perpetual opinion market utility. Explore high-res sneak peek frames, trait rarities, and ecosystem privileges.
+      </p>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-pill">
+          <div class="stat-val">5,555</div>
+          <div class="stat-label">Total Supply</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val" style="color:#ffb949;">180+</div>
+          <div class="stat-label">Hand-Inked Traits</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val" style="color:#ff7b29;">1%</div>
+          <div class="stat-label">Enforced Royalty</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val" style="color:#b889ff;">Robinhood</div>
+          <div class="stat-label">Chain ID 46630</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-wrap">
+
+      <!-- Filter Controls -->
+      <div class="filter-bar">
+        <button type="button" class="filter-btn active" data-filter="all">All Sneak Peeks</button>
+        <button type="button" class="filter-btn" data-filter="legendary">⭐ Legendary</button>
+        <button type="button" class="filter-btn" data-filter="rare">✨ Rare Traits</button>
+        <button type="button" class="filter-btn" data-filter="mascot">🎃 Mascot & Comic</button>
+      </div>
+
+      <!-- Sneak Peek Frames Grid -->
+      <section class="frames-grid" id="frames-grid">
+
+        <!-- Frame 1 -->
+        <div class="sneak-frame-card sneak-frame-card--legendary" data-category="legendary" data-title="The Genesis Wanderer" data-number="#0001" data-img="/brand/preview-frames/sneak-1.jpg" data-lore="The original drifter through the gothic mist of Robinhood Chain. Wearing the weathered canvas trench coat with dual curve vision." data-head="OG Pumpkin (0.8%)" data-body="Gothic Trench (2.1%)" data-aura="Diamond Conviction (1.0%)">
+          <div class="frame-img-box">
+            <img src="/brand/preview-frames/sneak-1.jpg" alt="Sneak Peek #0001" loading="lazy" />
+            <span class="frame-badge-top">⭐ Legendary</span>
+            <span class="frame-number-badge">#0001</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">The Genesis Wanderer</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill trait-pill--legendary">OG Pumpkin</span>
+              <span class="trait-pill">Gothic Trench</span>
+              <span class="trait-pill">Diamond Aura</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Top 1% Rarity</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 2 -->
+        <div class="sneak-frame-card" data-category="rare" data-title="Market Oracle Killer" data-number="#0420" data-img="/brand/preview-frames/sneak-2.jpg" data-lore="Armed with algorithmic bonding curves that never need a centralized dispute or settlement referee. Pure market momentum." data-head="Jack-o'-Lantern Glow (3.4%)" data-body="Streetwear Parka (4.2%)" data-aura="Cyan YES Curve (2.5%)">
+          <div class="frame-img-box">
+            <img src="/brand/preview-frames/sneak-2.jpg" alt="Sneak Peek #0420" loading="lazy" />
+            <span class="frame-badge-top">✨ Rare</span>
+            <span class="frame-number-badge">#0420</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">Market Oracle Killer</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill">Glow Eyes</span>
+              <span class="trait-pill">Street Parka</span>
+              <span class="trait-pill">YES Vision</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Rare Tier</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 3 -->
+        <div class="sneak-frame-card" data-category="rare" data-title="Neon Degen Stroll" data-number="#0888" data-img="/brand/preview-frames/sneak-3.jpg" data-lore="Pacing the midnight cobblestones outside Degen Mansion, waiting for the 13-pane knocker clock to chime." data-head="Cyber Purple Stem (2.8%)" data-body="Night Rider Leather (3.1%)" data-aura="Neon Violet (4.0%)">
+          <div class="frame-img-box">
+            <img src="/brand/preview-frames/sneak-3.jpg" alt="Sneak Peek #0888" loading="lazy" />
+            <span class="frame-badge-top">✨ Rare</span>
+            <span class="frame-number-badge">#0888</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">Neon Degen Stroll</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill">Purple Stem</span>
+              <span class="trait-pill">Night Leather</span>
+              <span class="trait-pill">Violet Aura</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Rare Tier</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 4 -->
+        <div class="sneak-frame-card" data-category="mascot" data-title="Midnight Knocker" data-number="#1337" data-img="/brand/preview-frames/sneak-4.jpg" data-lore="Keeper of the double carved doors. Every knock rattles treats, candy corn, and instant liquidity into the streets." data-head="Brass Knocker Horns (1.9%)" data-body="Mansion Velvet (2.5%)" data-aura="Candy Storm (1.5%)">
+          <div class="frame-img-box">
+            <img src="/brand/preview-frames/sneak-4.jpg" alt="Sneak Peek #1337" loading="lazy" />
+            <span class="frame-badge-top">🎃 Mascot</span>
+            <span class="frame-number-badge">#1337</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">Midnight Knocker</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill">Brass Horns</span>
+              <span class="trait-pill">Mansion Velvet</span>
+              <span class="trait-pill">Candy Storm</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Top 3% Rarity</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 5 -->
+        <div class="sneak-frame-card sneak-frame-card--legendary" data-category="legendary" data-title="Robinhood Ronin" data-number="#2048" data-img="/brand/preview-frames/sneak-5.jpg" data-lore="Forged on Chain ID 46630 with a golden carved stem. Master of dual curves and permanent 1% creator volume fees." data-head="Golden Ember Stem (0.5%)" data-body="Ronin Kimono (1.2%)" data-aura="Robinhood Native (0.9%)">
+          <div class="frame-img-box">
+            <img src="/brand/preview-frames/sneak-5.jpg" alt="Sneak Peek #2048" loading="lazy" />
+            <span class="frame-badge-top">⭐ Legendary</span>
+            <span class="frame-number-badge">#2048</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">Robinhood Ronin</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill trait-pill--legendary">Golden Stem</span>
+              <span class="trait-pill">Ronin Kimono</span>
+              <span class="trait-pill">46630 Native</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Top 1% Rarity</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 6 -->
+        <div class="sneak-frame-card" data-category="mascot" data-title="Classic Pumpkin Head" data-number="#3141" data-img="/brand/tired-pumpkin-face.png" data-lore="The signature profile avatar seen across official Tired.Fun brand headers and token collateral reserves." data-head="Carved Classic Grin (5.0%)" data-body="Black Collar (6.0%)" data-aura="Warm Carriage Glow (4.5%)">
+          <div class="frame-img-box" style="padding:16px;background:radial-gradient(circle,#251936,#110e17);">
+            <img src="/brand/tired-pumpkin-face.png" alt="Sneak Peek #3141" style="object-fit:contain;" loading="lazy" />
+            <span class="frame-badge-top">🎃 Signature</span>
+            <span class="frame-number-badge">#3141</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">Classic Pumpkin Head</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill">Classic Grin</span>
+              <span class="trait-pill">Signature Art</span>
+              <span class="trait-pill">Robinhood First</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Signature OG</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 7 -->
+        <div class="sneak-frame-card" data-category="mascot" data-title="The Cobblestone Walker" data-number="#4321" data-img="/brand/tired-character-walk.png" data-lore="Full silhouette of the Tired pumpkin character navigating foggy streetlights with hands buried deep in oversized pockets." data-head="Tilted Pumpkin (4.2%)" data-body="Oversized Slouch Parka (5.1%)" data-aura="Cobblestone Fog (3.9%)">
+          <div class="frame-img-box" style="padding:16px;background:radial-gradient(circle,#231c2e,#110e17);">
+            <img src="/brand/tired-character-walk.png" alt="Sneak Peek #4321" style="object-fit:contain;" loading="lazy" />
+            <span class="frame-badge-top">🎃 Character</span>
+            <span class="frame-number-badge">#4321</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">The Cobblestone Walker</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill">Full Body</span>
+              <span class="trait-pill">Slouch Parka</span>
+              <span class="trait-pill">Creeping Fog</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">Character Walk</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frame 8 -->
+        <div class="sneak-frame-card sneak-frame-card--legendary" data-category="legendary" data-title="Genesis Comic Universe" data-number="#5555" data-img="/tired-banner.jpg" data-lore="The ultimate panoramic showcase uniting every Tired character, mansion doorway, and perpetual opinion market into one singular masterwork." data-head="Omnipresent Halo (0.1%)" data-body="Full Comic Universe (0.1%)" data-aura="Perpetual Infinity (0.1%)">
+          <div class="frame-img-box" style="background:#110e17;">
+            <img src="/tired-banner.jpg" alt="Sneak Peek #5555" loading="lazy" />
+            <span class="frame-badge-top">⭐ Mythic Apex</span>
+            <span class="frame-number-badge">#5555</span>
+          </div>
+          <div class="frame-info">
+            <h3 class="frame-title">Genesis Comic Universe</h3>
+            <div class="frame-traits-pills">
+              <span class="trait-pill trait-pill--legendary">Mythic Apex</span>
+              <span class="trait-pill">Full Panorama</span>
+              <span class="trait-pill">All Traits Unlocked</span>
+            </div>
+            <div class="frame-footer">
+              <span class="frame-rarity">1 of 1 Apex</span>
+              <span class="frame-inspect-btn">Inspect &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Utility & Perks Section -->
+      <section class="utility-section">
+        <div class="section-eyebrow">Holder Privileges</div>
+        <h2 class="section-title">Genesis Utility in the Tired.Fun Ecosystem</h2>
+
+        <div class="perks-grid">
+          
+          <div class="perk-card">
+            <span class="perk-icon">📈</span>
+            <h3 class="perk-title">Opinion Market Fee Share</h3>
+            <p class="perk-desc">
+              Genesis 5,555 holders earn boosted revenue splits from the protocol's 1% creator fee stream across all trending debate markets on Robinhood Chain.
+            </p>
+          </div>
+
+          <div class="perk-card">
+            <span class="perk-icon">🎃</span>
+            <h3 class="perk-title">Mansion Knocker Privileges</h3>
+            <p class="perk-desc">
+              Unlock secret countdown chambers behind the 13-pane fanlight arch, receive exclusive knocker tokens, and claim periodic community reward drops.
+            </p>
+          </div>
+
+          <div class="perk-card">
+            <span class="perk-icon">⚡</span>
+            <h3 class="perk-title">Curator Voting Weight</h3>
+            <p class="perk-desc">
+              Direct market discovery by boosting viral thesis questions to the front page of Tired.Fun. Receive curator bonuses as boosted markets gain volume.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Trait Breakdown Matrix -->
+      <section class="trait-matrix-section">
+        <div class="section-eyebrow">Generative Genetics</div>
+        <h2 class="section-title">180+ Hand-Drawn Trait Categories</h2>
+
+        <div class="traits-category-grid">
+          
+          <div class="trait-category-card">
+            <div class="trait-cat-title">Headwear & Stems</div>
+            <div class="trait-cat-count">36 Traits</div>
+            <div class="trait-cat-examples">Golden Ember, Knocker Horns, Cyber Stems, Gothic Hats, Jack-o'-Lantern crowns</div>
+          </div>
+
+          <div class="trait-category-card">
+            <div class="trait-cat-title">Carvings & Expressions</div>
+            <div class="trait-cat-count">28 Traits</div>
+            <div class="trait-cat-examples">Classic Smile, Dual Curve Eyes, Smirk, Ghoulish Glow, Laser Flame sockets</div>
+          </div>
+
+          <div class="trait-category-card">
+            <div class="trait-cat-title">Streetwear & Robes</div>
+            <div class="trait-cat-count">48 Traits</div>
+            <div class="trait-cat-examples">Gothic Trench, Slouch Parkas, Ronin Kimonos, Vintage Knits, Degen leather</div>
+          </div>
+
+          <div class="trait-category-card">
+            <div class="trait-cat-title">Auras & Atmosphere</div>
+            <div class="trait-cat-count">22 Traits</div>
+            <div class="trait-cat-examples">Cyan YES Glow, Orange NO Embers, Creeping Mist, Spiderweb Transom, Candy Rain</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Lightbox Preview Modal -->
+      <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+        <div class="lightbox-card">
+          <button type="button" class="lightbox-close" id="btn-close-lightbox">&times;</button>
+          
+          <div class="lightbox-img-wrap">
+            <img src="" alt="Sneak Peek Preview" id="lightbox-img" />
+          </div>
+
+          <div class="lightbox-content">
+            <div class="lightbox-header">
+              <h3 class="lightbox-title" id="lightbox-title">The Genesis Wanderer</h3>
+              <span class="lightbox-number" id="lightbox-number">#0001</span>
+            </div>
+            
+            <p style="font-size:14px;color:var(--text-body);line-height:1.6;margin-bottom:14px;" id="lightbox-lore">
+              Detailed lore description will be populated dynamically.
+            </p>
+
+            <div class="lightbox-traits-grid">
+              <div class="lightbox-trait-box">
+                <div class="lightbox-trait-type">Head Trait</div>
+                <div class="lightbox-trait-val" id="trait-head">OG Pumpkin</div>
+              </div>
+              <div class="lightbox-trait-box">
+                <div class="lightbox-trait-type">Body Trait</div>
+                <div class="lightbox-trait-val" id="trait-body">Gothic Trench</div>
+              </div>
+              <div class="lightbox-trait-box">
+                <div class="lightbox-trait-type">Conviction Aura</div>
+                <div class="lightbox-trait-val" id="trait-aura">Diamond Conviction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/collection">The Collection</a></li>
+      <li><a href="/about">How It Works</a></li>
+      <li><a href="https://x.com/TheTiredFun" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+      <li><a href="https://tired.fun" target="_blank" rel="noopener noreferrer">Tired.fun</a></li>
+    </ul>
+    <div>&copy; 2026 Tired.Fun. The 5,555 Genesis Digital Collectibles on Robinhood Chain (46630).</div>
+  </footer>
+
+  <script>
+    (function() {
+      // Mobile Navigation
+      const toggle = document.getElementById('mobile-nav-toggle');
+      const nav = document.querySelector('.top-nav');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+
+      function toggleNav() {
+        const isOpen = nav.classList.contains('open');
+        if (isOpen) {
+          nav.classList.remove('open');
+          toggle.classList.remove('active');
+          backdrop.classList.remove('open');
+        } else {
+          nav.classList.add('open');
+          toggle.classList.add('active');
+          backdrop.classList.add('open');
+        }
+      }
+
+      if (toggle) toggle.addEventListener('click', toggleNav);
+      if (backdrop) backdrop.addEventListener('click', toggleNav);
+
+      // Filtering Tabs
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.sneak-frame-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Lightbox functionality
+      const lightbox = document.getElementById('lightbox-modal');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbTitle = document.getElementById('lightbox-title');
+      const lbNumber = document.getElementById('lightbox-number');
+      const lbLore = document.getElementById('lightbox-lore');
+      const lbHead = document.getElementById('trait-head');
+      const lbBody = document.getElementById('trait-body');
+      const lbAura = document.getElementById('trait-aura');
+      const btnCloseLb = document.getElementById('btn-close-lightbox');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          lbImg.src = card.getAttribute('data-img');
+          lbTitle.textContent = card.getAttribute('data-title');
+          lbNumber.textContent = card.getAttribute('data-number');
+          lbLore.textContent = card.getAttribute('data-lore') || 'One of 5,555 algorithmically composed digital collectibles on Robinhood Chain.';
+          lbHead.textContent = card.getAttribute('data-head') || 'Classic';
+          lbBody.textContent = card.getAttribute('data-body') || 'Streetwear';
+          lbAura.textContent = card.getAttribute('data-aura') || 'Perpetual';
+
+          lightbox.classList.add('open');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+
+      if (btnCloseLb) btnCloseLb.addEventListener('click', closeLightbox);
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      // Restore user session if logged in
+      const rawUser = localStorage.getItem('tired_user');
+      if (rawUser) {
+        try {
+          const user = JSON.parse(rawUser);
+          const wrap = document.getElementById('user-session-wrapper');
+          if (wrap) {
+            wrap.style.display = 'block';
+            document.getElementById('user-pill-name').textContent = user.name || 'User';
+            if (user.avatar) document.getElementById('user-pill-avatar').src = user.avatar;
+            document.getElementById('user-dropdown-name').textContent = user.name || 'User';
+            document.getElementById('user-dropdown-email').textContent = user.email || '';
+          }
+        } catch (e) {}
+      }
+
+      const pill = document.getElementById('user-pill-btn');
+      const drop = document.getElementById('user-dropdown-card');
+      if (pill && drop) {
+        pill.addEventListener('click', (e) => {
+          e.stopPropagation();
+          drop.classList.toggle('open');
+        });
+        document.addEventListener('click', () => drop.classList.remove('open'));
+      }
+
+      const btnSignout = document.getElementById('btn-signout');
+      if (btnSignout) {
+        btnSignout.addEventListener('click', () => {
+          localStorage.removeItem('tired_user');
+          location.reload();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
