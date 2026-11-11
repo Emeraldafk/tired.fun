@@ -319,6 +319,7 @@
     .reward-tile {
       background: rgba(25, 23, 28, 0.82);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 18px 20px;
@@ -326,20 +327,54 @@
       align-items: center;
       gap: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      position: relative;
     }
 
     .reward-tile:hover {
-      border-color: rgba(255, 255, 255, 0.18);
-      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
     }
 
     .reward-tile--gold {
       border-left: 3px solid #ffb949;
     }
 
+    .reward-tile--gold:hover {
+      border-color: rgba(255, 185, 73, 0.6);
+      box-shadow: 0 14px 34px rgba(255, 185, 73, 0.22);
+    }
+
     .reward-tile--purple {
       border-left: 3px solid var(--purple);
+    }
+
+    .reward-tile--purple:hover {
+      border-color: rgba(158, 97, 250, 0.6);
+      box-shadow: 0 14px 34px rgba(158, 97, 250, 0.25);
+    }
+
+    .tile-action-arrow {
+      margin-left: auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .reward-tile:hover .tile-action-arrow {
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      transform: translateX(3px);
     }
 
     .tile-icon {
@@ -1376,64 +1411,70 @@
           </button>
         </div>
 
-        <!-- Reward Tiles -->
-        <ul class="reward-tiles" aria-label="Key highlights">
-          <!-- Card 1: 5,555 Collection on Robinhood -->
-          <li class="reward-tile reward-tile--gold">
-            <a href="/collection" style="display:flex;align-items:center;gap:16px;width:100%;text-decoration:none;color:inherit;">
-              <div class="tile-icon">
-                <!-- Golden Candy / Treat Badge SVG -->
-                <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="filter:drop-shadow(0 0 6px rgba(255, 185, 73, 0.6))">
-                  <defs>
-                    <radialGradient id="candy-ball" cx="50%" cy="85%" r="85%">
-                      <stop offset="0" stop-color="#FFF7E0"></stop>
-                      <stop offset=".45" stop-color="#FFD592"></stop>
-                      <stop offset="1" stop-color="#FFB949"></stop>
-                    </radialGradient>
-                    <linearGradient id="candy-wrap" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stop-color="#FFD592"></stop>
-                      <stop offset="1" stop-color="#FFB949"></stop>
-                    </linearGradient>
-                  </defs>
-                  <path d="M12 6.6 7.6 1.4q2.2.9 4.4.5 2.2-.4 4.4.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
-                  <path d="M12 17.4 7.6 22.6q2.2-.9 4.4-.5 2.2.4 4.4-.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
-                  <circle cx="12" cy="12" r="6.2" fill="url(#candy-ball)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6"></circle>
-                  <path d="M8.5 9.8q2.5-1.5 5.5-.6" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1.2" opacity=".8"></path>
-                </svg>
-              </div>
-              <div class="tile-info">
-                <span class="tile-label">Collection on Robinhood</span>
-                <strong class="tile-value">5,555</strong>
-                <span class="tile-note">Genesis Digital Collectibles</span>
-              </div>
-            </a>
-          </li>
+        <!-- Reward Tiles (Direct Clickable Cards) -->
+        <div class="reward-tiles" aria-label="Key highlights">
+          <!-- Card 1: 5,555 Collection on Robinhood -> /collection -->
+          <a href="/collection" class="reward-tile reward-tile--gold" id="tile-collection-link" title="Explore The 5,555 Genesis Collection">
+            <div class="tile-icon">
+              <!-- Golden Candy / Treat Badge SVG -->
+              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="filter:drop-shadow(0 0 6px rgba(255, 185, 73, 0.6))">
+                <defs>
+                  <radialGradient id="candy-ball" cx="50%" cy="85%" r="85%">
+                    <stop offset="0" stop-color="#FFF7E0"></stop>
+                    <stop offset=".45" stop-color="#FFD592"></stop>
+                    <stop offset="1" stop-color="#FFB949"></stop>
+                  </radialGradient>
+                  <linearGradient id="candy-wrap" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#FFD592"></stop>
+                    <stop offset="1" stop-color="#FFB949"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M12 6.6 7.6 1.4q2.2.9 4.4.5 2.2-.4 4.4.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
+                <path d="M12 17.4 7.6 22.6q2.2-.9 4.4-.5 2.2.4 4.4-.5z" fill="url(#candy-wrap)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6" stroke-linejoin="round"></path>
+                <circle cx="12" cy="12" r="6.2" fill="url(#candy-ball)" stroke="#8A5206" stroke-opacity=".35" stroke-width=".6"></circle>
+                <path d="M8.5 9.8q2.5-1.5 5.5-.6" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1.2" opacity=".8"></path>
+              </svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-label">Collection on Robinhood</span>
+              <strong class="tile-value">5,555</strong>
+              <span class="tile-note">Genesis Digital Collectibles</span>
+            </div>
+            <div class="tile-action-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"></path>
+              </svg>
+            </div>
+          </a>
 
-          <!-- Card 2: Opinion Market | 1% creator royalty -->
-          <li class="reward-tile reward-tile--purple">
-            <a href="/about" style="display:flex;align-items:center;gap:16px;width:100%;text-decoration:none;color:inherit;">
-              <div class="tile-icon">
-                <!-- Purple Relic / Market Icon SVG -->
-                <svg viewBox="0 0 14 20" width="22" height="32" aria-hidden="true" style="filter:drop-shadow(0 0 8px rgba(158, 97, 250, 0.7))">
-                  <defs>
-                    <linearGradient id="knock-grad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stop-color="#F6EEFF"></stop>
-                      <stop offset=".35" stop-color="#C9A2FF"></stop>
-                      <stop offset="1" stop-color="#6A3DC4"></stop>
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 1 C10 1 12.5 3.5 12.5 6.5 L12.5 17 C12.5 18 11.5 19 10.5 19 L3.5 19 C2.5 19 1.5 18 1.5 17 L1.5 6.5 C1.5 3.5 4 1 7 1 Z" fill="url(#knock-grad)" stroke="#4B1F9E" stroke-width=".8"></path>
-                  <path d="M5 5 C6 4 8 4 9 5" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1" opacity=".9"></path>
-                </svg>
-              </div>
-              <div class="tile-info">
-                <span class="tile-label">Opinion Market</span>
-                <strong class="tile-value">Trade & Predict</strong>
-                <span class="tile-note">1% creator royalty</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+          <!-- Card 2: Opinion Market | 1% creator royalty -> /about -->
+          <a href="/about" class="reward-tile reward-tile--purple" id="tile-market-link" title="How Perpetual Opinion Markets Work">
+            <div class="tile-icon">
+              <!-- Purple Relic / Market Icon SVG -->
+              <svg viewBox="0 0 14 20" width="22" height="32" aria-hidden="true" style="filter:drop-shadow(0 0 8px rgba(158, 97, 250, 0.7))">
+                <defs>
+                  <linearGradient id="knock-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#F6EEFF"></stop>
+                    <stop offset=".35" stop-color="#C9A2FF"></stop>
+                    <stop offset="1" stop-color="#6A3DC4"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M7 1 C10 1 12.5 3.5 12.5 6.5 L12.5 17 C12.5 18 11.5 19 10.5 19 L3.5 19 C2.5 19 1.5 18 1.5 17 L1.5 6.5 C1.5 3.5 4 1 7 1 Z" fill="url(#knock-grad)" stroke="#4B1F9E" stroke-width=".8"></path>
+                <path d="M5 5 C6 4 8 4 9 5" fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="1" opacity=".9"></path>
+              </svg>
+            </div>
+            <div class="tile-info">
+              <span class="tile-label">Opinion Market</span>
+              <strong class="tile-value">Trade &amp; Predict</strong>
+              <span class="tile-note">1% creator royalty</span>
+            </div>
+            <div class="tile-action-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
 
         <!-- Edge / Footer Links -->
         <nav class="edge-nav" aria-label="Community Links">
