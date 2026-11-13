@@ -24,7 +24,7 @@ An exact replica of the POV Degen Mansion countdown and knock experience modeled
 - **Brand & Content Integration**:
   - Brand header lockup with Tired.fun typography and pumpkin mascot
   - Hero copy: `Knock knock.` and `Trade on Tired.fun for knocks and candies.`
-  - CTA button: `Launch App`
+  - Header action: `Launch App` button
   - Offer cards:
     - **Spooky Ranks**: `$7,000` pool for the top 50
     - **Knocks**: `Upto $500` behind any knock
