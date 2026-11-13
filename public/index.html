@@ -596,224 +596,6 @@
       line-height: 1.45;
     }
 
-    .auth-btn {
-      width: 100%;
-      padding: 13px 20px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      border: none;
-    }
-
-    .auth-btn-white {
-      background: #fff;
-      color: #121016;
-    }
-
-    .auth-btn-white:hover {
-      background: #f0edf5;
-      transform: translateY(-1px);
-    }
-
-    .auth-btn-outline {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
-    }
-
-    .auth-btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .auth-divider {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin: 12px 0;
-      color: #696375;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .auth-divider::before,
-    .auth-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    /* User Session Pill in Header */
-    .user-session-wrapper {
-      position: relative;
-    }
-
-    .user-pill-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 123, 41, 0.4);
-      color: #fff;
-      padding: 5px 14px 5px 6px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .user-pill-btn:hover,
-    .user-pill-btn.active {
-      background: rgba(255, 123, 41, 0.18);
-      border-color: var(--orange);
-      box-shadow: 0 0 16px rgba(255, 123, 41, 0.35);
-    }
-
-    .user-pill-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1.5px solid var(--orange);
-      display: block;
-    }
-
-    .user-pill-name {
-      max-width: 110px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .user-pill-caret {
-      font-size: 11px;
-      color: #9d9dad;
-      transition: transform 0.2s ease;
-    }
-
-    .user-pill-btn.active .user-pill-caret {
-      transform: rotate(180deg);
-    }
-
-    /* User Profile Dropdown */
-    .user-dropdown-card {
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      background: #191622;
-      border: 1px solid rgba(255, 123, 41, 0.25);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 123, 41, 0.15);
-      border-radius: 18px;
-      padding: 16px;
-      width: 260px;
-      z-index: 120;
-      display: none;
-      animation: dropdownPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .user-dropdown-card.open {
-      display: block;
-    }
-
-    @keyframes dropdownPop {
-      from { opacity: 0; transform: translateY(-8px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .user-dropdown-profile {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .user-dropdown-avatar-box img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--orange);
-      display: block;
-    }
-
-    .user-dropdown-details {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      text-align: left;
-    }
-
-    .user-dropdown-name {
-      font-weight: 800;
-      font-size: 15px;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .user-dropdown-email {
-      font-size: 12px;
-      color: #9d9dad;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .user-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 10px;
-      font-weight: 800;
-      color: #34d399;
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .user-dropdown-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-      margin: 10px 0;
-    }
-
-    .user-dropdown-action {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: none;
-      border: none;
-      color: #cbc4d8;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: left;
-    }
-
-    .user-dropdown-action:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-    }
-
-    .user-dropdown-signout:hover {
-      background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-    }
 
 
     /* Launching animation state for Launch App button */
@@ -977,44 +759,6 @@
         white-space: nowrap;
       }
 
-      /* Connected User Pill on Mobile - compact & locked so toggle never gets pushed */
-      .user-session-wrapper {
-        position: relative;
-        flex-shrink: 0;
-      }
-
-      .user-pill-btn {
-        padding: 4px 8px 4px 4px;
-        gap: 6px;
-        font-size: 13px;
-        flex-shrink: 0;
-        max-width: 130px;
-      }
-
-      .user-pill-avatar {
-        width: 28px;
-        height: 28px;
-        flex-shrink: 0;
-      }
-
-      .user-pill-name {
-        max-width: 65px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 13px;
-      }
-
-      .user-pill-caret {
-        font-size: 9px;
-        flex-shrink: 0;
-      }
-
-      .user-dropdown-card {
-        right: 0;
-        width: 250px;
-        max-width: calc(100vw - 32px);
-      }
 
       /* Mobile Navigation Toggle Button - locked size, never shrinks */
       .mobile-nav-toggle {
@@ -1273,14 +1017,6 @@
       .brand-tag {
         display: none !important;
       }
-      .user-pill-btn {
-        padding: 3px 6px 3px 3px;
-        gap: 4px;
-        max-width: none;
-      }
-      .user-pill-name {
-        display: none !important;
-      }
     }
   </style>
 </head>
@@ -1318,41 +1054,9 @@
 
     <!-- Header CTA & Mobile Nav Toggle -->
     <div class="header-actions">
-      <!-- Logged Out Sign In Button -->
-      <button type="button" class="header-btn" id="header-signin-btn">
-        <span>🎃</span> Sign In
+      <button type="button" class="header-btn" id="header-launch-btn">
+        <span>🚀</span> Launch App
       </button>
-
-      <!-- Logged In User Pill with Dropdown -->
-      <div class="user-session-wrapper" id="user-session-wrapper" style="display:none;">
-        <button type="button" class="user-pill-btn" id="user-pill-btn" aria-label="User Account" aria-expanded="false">
-          <img src="/brand/tired-pumpkin-face.png" alt="" class="user-pill-avatar" id="user-pill-avatar" />
-          <span class="user-pill-name" id="user-pill-name">Degen</span>
-          <span class="user-pill-caret">▼</span>
-        </button>
-        <div class="user-dropdown-card" id="user-dropdown-card">
-          <div class="user-dropdown-profile">
-            <div class="user-dropdown-avatar-box">
-              <img src="/brand/tired-pumpkin-face.png" alt="" id="user-dropdown-avatar" />
-            </div>
-            <div class="user-dropdown-details">
-              <div class="user-dropdown-name" id="user-dropdown-name">Degen Trader</div>
-              <div class="user-dropdown-email" id="user-dropdown-email">degen@tired.fun</div>
-              <span class="user-status-badge">
-                <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#34d399;"></span>
-                Connected
-              </span>
-            </div>
-          </div>
-          <div class="user-dropdown-divider"></div>
-          <button type="button" class="user-dropdown-action" id="btn-user-launch-app">
-            <span>🚀</span> Launch App
-          </button>
-          <button type="button" class="user-dropdown-action user-dropdown-signout" id="btn-signout">
-            <span>🚪</span> Sign Out
-          </button>
-        </div>
-      </div>
 
       <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="hamburger-line"></span>
@@ -1385,9 +1089,8 @@
         </p>
 
         <div class="hero-cta">
-          <button type="button" class="btn-primary-purple" id="btn-signin-hero">
-            <img src="/brand/tired-pumpkin-face.png" alt="" width="22" height="22" style="border-radius:50%;object-fit:cover;" />
-            Sign in with Tired.fun
+          <button type="button" class="btn-primary-purple" id="btn-launch-hero">
+            <span style="font-size:18px;">🚀</span> Launch App
           </button>
         </div>
 
@@ -1490,31 +1193,6 @@
     </div>
   </main>
 
-  <!-- Modal 1: Sign In Dialog -->
-  <div class="modal-overlay" id="signin-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button type="button" class="modal-close-btn" data-close="signin-modal">&times;</button>
-      
-      <div class="modal-header">
-        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <img src="/brand/tired-pumpkin-face.png" alt="Tired" width="38" height="38" style="border-radius:10px;" />
-          <span style="font-weight:900;font-size:24px;color:#fff;">Tired<span style="color:var(--orange);">.fun</span></span>
-        </div>
-        <h2 class="modal-title">Connect to Tired.fun</h2>
-        <p class="modal-subtitle">Connect your Web3 wallet to trade collectibles & opinion markets.</p>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <button type="button" class="auth-btn auth-btn-white" id="btn-wallet-connect" style="justify-content:center;font-weight:800;gap:10px;">
-          <span style="font-size:18px;">🦊</span> Connect Web3 Wallet
-        </button>
-
-        <button type="button" class="auth-btn auth-btn-outline" id="btn-quick-connect" style="justify-content:center;font-weight:700;gap:10px;">
-          <img src="/brand/tired-pumpkin-face.png" alt="" width="20" height="20" style="border-radius:50%;" /> Quick Guest Trader
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- Modal 4: Scholarship Application -->
   <div class="modal-overlay" id="scholarship-modal" aria-hidden="true">
@@ -1746,178 +1424,15 @@
         }, 3200);
       }
 
-      // User session state & rendering
-      function renderUserSession() {
-        const raw = localStorage.getItem('tired_user');
-        const userWrapper = document.getElementById('user-session-wrapper');
-        const btnHeaderSignin = document.getElementById('header-signin-btn');
-        const btnHeroSignin = document.getElementById('btn-signin-hero');
-
-        if (raw) {
-          try {
-            const user = JSON.parse(raw);
-            if (btnHeaderSignin) btnHeaderSignin.style.display = 'none';
-            if (userWrapper) {
-              userWrapper.style.display = 'block';
-              const nameEl = document.getElementById('user-pill-name');
-              const avatarEl = document.getElementById('user-pill-avatar');
-              const dropName = document.getElementById('user-dropdown-name');
-              const dropEmail = document.getElementById('user-dropdown-email');
-              const dropAvatar = document.getElementById('user-dropdown-avatar');
-
-              if (nameEl) nameEl.textContent = user.name;
-              if (avatarEl) avatarEl.src = user.avatar || '/brand/tired-pumpkin-face.png';
-              if (dropName) dropName.textContent = user.name;
-              if (dropEmail) dropEmail.textContent = user.email;
-              if (dropAvatar) dropAvatar.src = user.avatar || '/brand/tired-pumpkin-face.png';
-            }
-            if (btnHeroSignin) {
-              btnHeroSignin.innerHTML = '<span style="font-size:18px;">🚀</span> Launch App';
-            }
-            return;
-          } catch(err) {
-            console.error(err);
-          }
-        }
-
-        // Not signed in
-        if (btnHeaderSignin) btnHeaderSignin.style.display = 'inline-flex';
-        if (userWrapper) userWrapper.style.display = 'none';
-        if (btnHeroSignin) {
-          btnHeroSignin.innerHTML = '<img src="/brand/tired-pumpkin-face.png" alt="" width="22" height="22" style="border-radius:50%;object-fit:cover;" /> Sign in with Tired.fun';
-        }
+      // Launch App triggers
+      const btnHeaderLaunch = document.getElementById('header-launch-btn');
+      if (btnHeaderLaunch) {
+        btnHeaderLaunch.addEventListener('click', triggerLaunchAppFlow);
       }
 
-      async function connectWeb3Wallet() {
-        if (window.ethereum) {
-          try {
-            showToast('Connecting Web3 Wallet...');
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            if (accounts && accounts.length > 0) {
-              const addr = accounts[0];
-              const shortAddr = addr.slice(0, 6) + '...' + addr.slice(-4);
-              const userData = {
-                name: shortAddr,
-                email: addr,
-                avatar: '/brand/tired-pumpkin-face.png',
-                provider: 'web3',
-                timestamp: Date.now()
-              };
-              localStorage.setItem('tired_user', JSON.stringify(userData));
-              closeModal('signin-modal');
-              renderUserSession();
-              showToast(`Wallet connected: ${shortAddr}! 🎃`);
-              triggerCandyAnimation({ clientX: window.innerWidth * 0.5, clientY: 120 });
-              return;
-            }
-          } catch(err) {
-            console.error('Wallet connection rejected:', err);
-            showToast('Wallet connection was cancelled.');
-            return;
-          }
-        }
-
-        // Web3 guest wallet for browser testing / demo
-        const mockSuffix = Math.floor(1000 + Math.random() * 9000);
-        const userData = {
-          name: '0x71C...' + mockSuffix,
-          email: 'Robinhood Chain Mainnet',
-          avatar: '/brand/tired-pumpkin-face.png',
-          provider: 'web3',
-          timestamp: Date.now()
-        };
-        localStorage.setItem('tired_user', JSON.stringify(userData));
-        closeModal('signin-modal');
-        renderUserSession();
-        showToast(`Connected as ${userData.name}! 🎃`);
-        triggerCandyAnimation({ clientX: window.innerWidth * 0.5, clientY: 120 });
-      }
-
-      function connectGuestTrader() {
-        const userData = {
-          name: 'Degen #' + Math.floor(100 + Math.random() * 900),
-          email: 'Robinhood Chain Mainnet',
-          avatar: '/brand/tired-pumpkin-face.png',
-          provider: 'guest',
-          timestamp: Date.now()
-        };
-        localStorage.setItem('tired_user', JSON.stringify(userData));
-        closeModal('signin-modal');
-        renderUserSession();
-        showToast(`Connected as ${userData.name}! 🎃`);
-        triggerCandyAnimation({ clientX: window.innerWidth * 0.5, clientY: 120 });
-      }
-
-      function signoutUser() {
-        localStorage.removeItem('tired_user');
-        const userDropdownCard = document.getElementById('user-dropdown-card');
-        const userPillBtn = document.getElementById('user-pill-btn');
-        if (userDropdownCard) userDropdownCard.classList.remove('open');
-        if (userPillBtn) userPillBtn.classList.remove('active');
-        renderUserSession();
-        showToast('Signed out successfully.');
-      }
-
-      // Initial session check
-      renderUserSession();
-
-      // Sign In buttons
-      const btnHeaderSignin = document.getElementById('header-signin-btn');
-      if (btnHeaderSignin) btnHeaderSignin.addEventListener('click', () => openModal('signin-modal'));
-
-      const btnHeroSignin = document.getElementById('btn-signin-hero');
-      if (btnHeroSignin) {
-        btnHeroSignin.addEventListener('click', (e) => {
-          const raw = localStorage.getItem('tired_user');
-          if (raw) {
-            triggerLaunchAppFlow(e);
-          } else {
-            openModal('signin-modal');
-          }
-        });
-      }
-
-      // Web3 & Guest connect triggers
-      const btnWalletConnect = document.getElementById('btn-wallet-connect');
-      if (btnWalletConnect) btnWalletConnect.addEventListener('click', connectWeb3Wallet);
-
-      const btnQuickConnect = document.getElementById('btn-quick-connect');
-      if (btnQuickConnect) btnQuickConnect.addEventListener('click', connectGuestTrader);
-
-      // User pill & dropdown listeners
-      const userPillBtn = document.getElementById('user-pill-btn');
-      const userDropdownCard = document.getElementById('user-dropdown-card');
-      if (userPillBtn && userDropdownCard) {
-        userPillBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isOpen = userDropdownCard.classList.contains('open');
-          if (isOpen) {
-            userDropdownCard.classList.remove('open');
-            userPillBtn.classList.remove('active');
-          } else {
-            userDropdownCard.classList.add('open');
-            userPillBtn.classList.add('active');
-          }
-        });
-
-        document.addEventListener('click', (e) => {
-          if (!userDropdownCard.contains(e.target) && !userPillBtn.contains(e.target)) {
-            userDropdownCard.classList.remove('open');
-            userPillBtn.classList.remove('active');
-          }
-        });
-      }
-
-      const btnSignout = document.getElementById('btn-signout');
-      if (btnSignout) btnSignout.addEventListener('click', signoutUser);
-
-      const btnUserLaunchApp = document.getElementById('btn-user-launch-app');
-      if (btnUserLaunchApp) {
-        btnUserLaunchApp.addEventListener('click', (e) => {
-          if (userDropdownCard) userDropdownCard.classList.remove('open');
-          if (userPillBtn) userPillBtn.classList.remove('active');
-          triggerLaunchAppFlow(e);
-        });
+      const btnHeroLaunch = document.getElementById('btn-launch-hero');
+      if (btnHeroLaunch) {
+        btnHeroLaunch.addEventListener('click', triggerLaunchAppFlow);
       }
 
       // Particle treats explosion animation on card / Launch App click

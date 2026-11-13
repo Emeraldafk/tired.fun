@@ -205,53 +205,6 @@
       box-shadow: 0 4px 18px rgba(255, 123, 41, 0.45);
     }
 
-    /* User Session Pill in Header */
-    .user-session-wrapper {
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .user-pill-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 123, 41, 0.4);
-      color: #fff;
-      padding: 4px 12px 4px 5px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .user-pill-avatar {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1.5px solid var(--orange);
-    }
-
-    .user-dropdown-card {
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      background: #191622;
-      border: 1px solid rgba(255, 123, 41, 0.25);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 123, 41, 0.15);
-      border-radius: 18px;
-      padding: 16px;
-      width: 260px;
-      z-index: 120;
-      display: none;
-    }
-
-    .user-dropdown-card.open {
-      display: block;
-    }
-
     /* Mobile Nav Toggle */
     .mobile-nav-toggle {
       display: none;
@@ -942,13 +895,6 @@
     }
 
     @media (max-width: 520px) {
-      .user-pill-btn {
-        padding: 3px 6px 3px 3px;
-        gap: 4px;
-      }
-      .user-pill-name {
-        display: none !important;
-      }
       .brand-title {
         font-size: 18px;
       }
@@ -992,21 +938,6 @@
 
     <!-- Header Actions -->
     <div class="header-actions">
-      <!-- Logged In User Pill -->
-      <div class="user-session-wrapper" id="user-session-wrapper" style="display:none;">
-        <button type="button" class="user-pill-btn" id="user-pill-btn" aria-label="User Account">
-          <img src="/brand/tired-pumpkin-face.png" alt="" class="user-pill-avatar" id="user-pill-avatar" />
-          <span class="user-pill-name" id="user-pill-name">User</span>
-          <span style="font-size:10px;">▼</span>
-        </button>
-        <div class="user-dropdown-card" id="user-dropdown-card">
-          <div style="font-weight:800;color:#fff;margin-bottom:4px;" id="user-dropdown-name">Degen Trader</div>
-          <div style="font-size:12px;color:#9d9dad;margin-bottom:12px;" id="user-dropdown-email">degen@tired.fun</div>
-          <button type="button" id="btn-signout" style="width:100%;padding:10px;background:rgba(239,68,68,0.15);border:none;border-radius:10px;color:#f87171;font-weight:700;cursor:pointer;">
-            Sign Out
-          </button>
-        </div>
-      </div>
 
       <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
         <span class="hamburger-line"></span>
@@ -1367,39 +1298,6 @@
         if (e.key === 'Escape') closeLightbox();
       });
 
-      // Restore user session if logged in
-      const rawUser = localStorage.getItem('tired_user');
-      if (rawUser) {
-        try {
-          const user = JSON.parse(rawUser);
-          const wrap = document.getElementById('user-session-wrapper');
-          if (wrap) {
-            wrap.style.display = 'block';
-            document.getElementById('user-pill-name').textContent = user.name || 'User';
-            if (user.avatar) document.getElementById('user-pill-avatar').src = user.avatar;
-            document.getElementById('user-dropdown-name').textContent = user.name || 'User';
-            document.getElementById('user-dropdown-email').textContent = user.email || '';
-          }
-        } catch (e) {}
-      }
-
-      const pill = document.getElementById('user-pill-btn');
-      const drop = document.getElementById('user-dropdown-card');
-      if (pill && drop) {
-        pill.addEventListener('click', (e) => {
-          e.stopPropagation();
-          drop.classList.toggle('open');
-        });
-        document.addEventListener('click', () => drop.classList.remove('open'));
-      }
-
-      const btnSignout = document.getElementById('btn-signout');
-      if (btnSignout) {
-        btnSignout.addEventListener('click', () => {
-          localStorage.removeItem('tired_user');
-          location.reload();
-        });
-      }
     })();
   </script>
 </body>
